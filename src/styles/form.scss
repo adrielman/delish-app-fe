@@ -1,0 +1,29 @@
+@import "./variables.scss";
+input,
+select {
+  background: $input-bg-color;
+  border: 3px solid transparent;
+  border-radius: 5px;
+  color: $input-color;
+  margin: 1em;
+  padding: 1em;
+  transition: 0.5s ease;
+
+  &:hover {
+    border: 3px solid darken($primary-color, 20%);
+    color: darken($primary-color, 20%);
+  }
+
+  &:focus {
+    border: 3px solid $primary-color;
+    color: $primary-color;
+  }
+}
+input[type="number"] {
+  appearance: textfield;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
