@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import "./App.css";
-import Ingredients from "./RecipeForm/Ingredients";
+import "./App.scss";
+import Ingredients from "./recipe-form/Ingredients";
 
 class App extends Component {
   render() {
