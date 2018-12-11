@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import IngredientForm from "./IngredientForm";
 import IngredientsList from "./IngredientsList";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 class Ingredients extends Component {
   constructor(props) {
     super(props);

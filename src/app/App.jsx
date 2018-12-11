@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./App.scss";
+import "./Icons";
+
 import Ingredients from "./recipe-form/Ingredients";
 
 class App extends Component {

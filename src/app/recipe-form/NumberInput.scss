@@ -1,0 +1,15 @@
+@import "./../../styles/mixins.scss";
+
+.NumberInput {
+  display: flex;
+  @extend %interactive-element;
+  @extend %transition;
+}
+
+.NumberInput-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 1em;
+}

@@ -1,0 +1,16 @@
+@import "./variables.scss";
+
+%interactive-element {
+  color: $input-color;
+  &:hover {
+    color: darken($primary-color, 20%);
+  }
+
+  &:focus {
+    color: $primary-color;
+  }
+}
+
+%transition {
+  transition: 0.5s ease;
+}

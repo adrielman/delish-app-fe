@@ -1,22 +1,22 @@
 @import "./variables.scss";
+@import "./mixins.scss";
+
 input,
 select {
+  @extend %interactive-element;
+  @extend %transition;
   background: $input-bg-color;
   border: 3px solid transparent;
   border-radius: 5px;
-  color: $input-color;
   margin: 1em;
   padding: 1em;
-  transition: 0.5s ease;
 
   &:hover {
     border: 3px solid darken($primary-color, 20%);
-    color: darken($primary-color, 20%);
   }
 
   &:focus {
     border: 3px solid $primary-color;
-    color: $primary-color;
   }
 }
 input[type="number"] {
