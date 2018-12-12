@@ -3,7 +3,9 @@
 .NumberInput {
   display: flex;
   color: $input-color;
-
+  input {
+    width: 80px;
+  }
   .NumberInput-controls {
     align-items: center;
     color: $input-bg-color;

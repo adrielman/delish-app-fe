@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import NumberInput from "./NumberInput";
+import TextInput from "./TextInput";
 import "./IngredientForm.scss";
 
 class IngredientForm extends Component {
@@ -39,7 +40,11 @@ class IngredientForm extends Component {
           {this.state.name} {this.state.amount} {this.state.type}
         </div>
         <div className="IngredientForm-form">
-          <input name="name" onChange={this.onChange} />
+          <TextInput
+            name="name"
+            onChange={this.changeState}
+            value={this.state.name}
+          />
           <NumberInput
             name="amount"
             value={this.state.amount}
