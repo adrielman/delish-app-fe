@@ -8,19 +8,25 @@ class IngredientForm extends Component {
 
     this.state = {
       name: "",
-      amount: "",
+      amount: 0,
       type: ""
     };
 
     this.changeState = this.changeState.bind(this);
+    this.onChange = this.onChange.bind(this);
     this.submitState = this.submitState.bind(this);
   }
 
-  changeState(event) {
+  onChange(event) {
     let value = event.target.value;
     let name = event.target.name;
+    this.changeState(name, value);
+  }
+
+  changeState(name, value) {
     this.setState({ [name]: value });
   }
+
   submitState(event) {
     event.preventDefault();
     this.props.onSubmit(this.state);
@@ -33,9 +39,13 @@ class IngredientForm extends Component {
           {this.state.name} {this.state.amount} {this.state.type}
         </div>
         <div className="IngredientForm-form">
-          <input name="name" onChange={this.changeState} />
-          <NumberInput name="amount" onChange={this.changeState} />
-          <select name="type" onChange={this.changeState}>
+          <input name="name" onChange={this.onChange} />
+          <NumberInput
+            name="amount"
+            value={this.state.amount}
+            onChange={this.changeState}
+          />
+          <select name="type" onChange={this.onChange}>
             <option value="">Unselected</option>
             <option value="teaspoon">teaspoon</option>
             <option value="tablespoon">tablespoon</option>
