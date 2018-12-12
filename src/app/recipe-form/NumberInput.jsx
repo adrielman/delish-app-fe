@@ -31,6 +31,7 @@ class NumberInput extends Component {
     return (
       <div className="NumberInput">
         <input
+          placeholder={this.props.label}
           value={this.props.value}
           name={this.props.name}
           ref={this.input}

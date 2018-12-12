@@ -1,27 +1,21 @@
 @import "./variables.scss";
 @import "./mixins.scss";
 
-input,
-select {
-  @extend %interactive-element;
+button {
   @extend %transition;
-  background: $input-bg-color;
+  background-color: $primary-color;
   border: 3px solid transparent;
   border-radius: 5px;
+  color: white;
   font: bold 15px "Roboto", sans-serif;
   margin: 1em;
   padding: 1em;
 
   &:hover {
-    border: 3px solid darken($primary-color, 20%);
+    background-color: lighten($primary-color, 10%);
   }
 
   &:focus {
-    border: 3px solid $primary-color;
+    background-color: lighten($primary-color, 15%);
   }
-}
-
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
 }

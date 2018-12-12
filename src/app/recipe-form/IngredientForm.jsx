@@ -1,7 +1,20 @@
 import React, { Component } from "react";
 import NumberInput from "./NumberInput";
 import TextInput from "./TextInput";
+import DropdownInput from "./DropdownInput";
 import "./IngredientForm.scss";
+
+const UNITS = [
+  { value: "teaspoon", label: "teaspoon" },
+  { value: "tablespoon", label: "tablespoon" },
+  { value: "cup", label: "cup" },
+  { value: "ml", label: "ml" },
+  { value: "l", label: "l" },
+  { value: "dl", label: "dl" },
+  { value: "mg", label: "mg" },
+  { value: "g", label: "g" },
+  { value: "kg", label: "kg" }
+];
 
 class IngredientForm extends Component {
   constructor(props) {
@@ -10,7 +23,7 @@ class IngredientForm extends Component {
     this.state = {
       name: "",
       amount: 0,
-      type: ""
+      unit: ""
     };
 
     this.changeState = this.changeState.bind(this);
@@ -37,42 +50,28 @@ class IngredientForm extends Component {
     return (
       <div className="IngredientForm">
         <div className="IngredientForm-label">
-          {this.state.name} {this.state.amount} {this.state.type}
+          {this.state.name} {this.state.amount} {this.state.unit}
         </div>
         <div className="IngredientForm-form">
           <TextInput
+            label="Ingredient"
             name="name"
             onChange={this.changeState}
             value={this.state.name}
           />
           <NumberInput
+            label="Amount"
             name="amount"
             value={this.state.amount}
             onChange={this.changeState}
           />
-          <select name="type" onChange={this.onChange}>
-            <option value="">Unselected</option>
-            <option value="teaspoon">teaspoon</option>
-            <option value="tablespoon">tablespoon</option>
-            <option value="fluid">fluid</option>
-            <option value="gill">gill</option>
-            <option value="cup">cup</option>
-            <option value="pint">pint</option>
-            <option value="quart">quart</option>
-            <option value="gallon">gallon</option>
-            <option value="ml">ml</option>
-            <option value="l">l</option>
-            <option value="dl">dl</option>
-            <option value="pound">pound</option>
-            <option value="ounce">ounce</option>
-            <option value="mg">mg</option>
-            <option value="g">g</option>
-            <option value="kg">kg</option>
-            <option value="mm">mm</option>
-            <option value="cm">cm</option>
-            <option value="m">m</option>
-            <option value="inch">inch</option>
-          </select>
+          <DropdownInput
+            label="Unit"
+            name="unit"
+            value={this.state.unit}
+            options={UNITS}
+            onChange={this.changeState}
+          />
           <button onClick={this.submitState}>Add</button>
         </div>
       </div>

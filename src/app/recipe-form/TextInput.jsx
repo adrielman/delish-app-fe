@@ -8,7 +8,7 @@ class TextInput extends Component {
   }
 
   onChange(event) {
-    let { name, value } = event.target;
+    const { name, value } = event.target;
     this.props.onChange(name, value);
   }
 
@@ -16,6 +16,7 @@ class TextInput extends Component {
     return (
       <div className="TextInput">
         <input
+          placeholder={this.props.label}
           value={this.props.value}
           name={this.props.name}
           onChange={this.onChange}
