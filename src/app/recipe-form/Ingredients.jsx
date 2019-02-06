@@ -10,14 +10,24 @@ class Ingredients extends Component {
       ingredients: []
     };
     this.onSubmit = this.onSubmit.bind(this);
+    this.onDelete = this.onDelete.bind(this);
   }
   onSubmit(ingredient) {
     this.setState({ ingredients: [...this.state.ingredients, ingredient] });
   }
+
+  onDelete(event) {
+    event.preventDefault();
+    console.log("Potato");
+  }
+
   render() {
     return (
       <div className="IngredientsList">
-        <IngredientsList ingredients={this.state.ingredients} />
+        <IngredientsList
+          ingredients={this.state.ingredients}
+          onDelete={this.onDelete}
+        />
         <IngredientForm
           className="IngredientsList-form"
           onSubmit={this.onSubmit}
