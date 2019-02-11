@@ -3,6 +3,7 @@ import NumberInput from "./NumberInput";
 import TextInput from "./TextInput";
 import DropdownInput from "./DropdownInput";
 import "./IngredientForm.scss";
+import Button from "../components/button/Button.jsx";
 
 const UNITS = [
   { value: "teaspoon", label: "teaspoon" },
@@ -41,8 +42,7 @@ class IngredientForm extends Component {
     this.setState({ [name]: value });
   }
 
-  submitState(event) {
-    event.preventDefault();
+  submitState() {
     this.props.onSubmit(this.state);
   }
 
@@ -72,7 +72,7 @@ class IngredientForm extends Component {
             options={UNITS}
             onChange={this.changeState}
           />
-          <button onClick={this.submitState}>Add</button>
+          <Button onClick={this.submitState} text={"Add"} />
         </div>
       </div>
     );

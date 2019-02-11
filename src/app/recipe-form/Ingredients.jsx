@@ -16,9 +16,10 @@ class Ingredients extends Component {
     this.setState({ ingredients: [...this.state.ingredients, ingredient] });
   }
 
-  onDelete(event) {
-    event.preventDefault();
-    console.log("Potato");
+  onDelete(index) {
+    var newIngredients = this.state.ingredients;
+    newIngredients.splice(index, 1);
+    this.setState({ ingredients: newIngredients });
   }
 
   render() {

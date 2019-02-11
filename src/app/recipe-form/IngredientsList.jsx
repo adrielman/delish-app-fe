@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../components/button/Button";
 
 const Ingredient = ({ ingredient, onDelete }) => (
   <li>
@@ -6,14 +7,20 @@ const Ingredient = ({ ingredient, onDelete }) => (
       {ingredient.name} {ingredient.amount} {ingredient.unit}
     </span>
     <span>
-      <button onClick={() => onDelete()}>Delete me</button>
+      <Button onClick={onDelete} text="Delete me" />
     </span>
   </li>
 );
 
-const IngredientsList = ({ ingredients }) =>
+const IngredientsList = ({ ingredients, onDelete }) =>
   ingredients.map((ingredient, index) => (
-    <Ingredient key={index} ingredient={ingredient} />
+    <Ingredient
+      key={index}
+      ingredient={ingredient}
+      onDelete={() => {
+        onDelete(index);
+      }}
+    />
   ));
 
 export default IngredientsList;
