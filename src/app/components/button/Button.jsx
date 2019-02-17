@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./Button.module.scss";
 
-const Button = ({ onClick, text }) => {
+export const Button = ({ onClick, text }) => {
   const clickHandler = event => {
     event.preventDefault();
     onClick();
@@ -12,5 +12,3 @@ const Button = ({ onClick, text }) => {
     </button>
   );
 };
-
-export default Button;

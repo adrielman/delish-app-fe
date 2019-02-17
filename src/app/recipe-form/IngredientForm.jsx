@@ -3,7 +3,7 @@ import NumberInput from "./NumberInput";
 import TextInput from "./TextInput";
 import DropdownInput from "./DropdownInput";
 import "./IngredientForm.scss";
-import Button from "../components/button/Button.jsx";
+import { Button } from "../components/button/Button.jsx";
 
 const UNITS = [
   { value: "teaspoon", label: "teaspoon" },
