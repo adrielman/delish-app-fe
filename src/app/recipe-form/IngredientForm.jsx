@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import NumberInput from "../components/form/number-input/NumberInput";
+import { NumberInput } from "../components/form/number-input/NumberInput";
 import TextInput from "../components/form/text-input/TextInput";
 import { DropdownInput } from "../components/form/dropdown-input/DropdownInput";
 import "./IngredientForm.scss";

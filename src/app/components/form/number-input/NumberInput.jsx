@@ -1,7 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./NumberInput.scss";
-const NumberInput = props => {
+export const NumberInput = props => {
   const input = React.createRef();
 
   const onChange = event => {
@@ -43,5 +43,3 @@ const NumberInput = props => {
     </div>
   );
 };
-
-export default NumberInput;
