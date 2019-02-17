@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./NumberInput.scss";
+
 export const NumberInput = props => {
   const input = React.createRef();
 

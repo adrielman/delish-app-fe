@@ -1,7 +1,7 @@
 import React from "react";
 import "./TextInput.scss";
 
-const TextInput = props => {
+export const TextInput = props => {
   const onChange = event => {
     const { name, value } = event.target;
     props.onChange(name, value);
@@ -18,5 +18,3 @@ const TextInput = props => {
     </div>
   );
 };
-
-export default TextInput;
