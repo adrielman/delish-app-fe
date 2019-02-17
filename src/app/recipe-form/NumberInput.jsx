@@ -1,57 +1,47 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./NumberInput.scss";
-class NumberInput extends Component {
-  constructor(props) {
-    super(props);
+const NumberInput = props => {
+  const input = React.createRef();
 
-    this.input = React.createRef();
-
-    this.onChange = this.onChange.bind(this);
-    this.onIncrease = this.onIncrease.bind(this);
-    this.onDecrease = this.onDecrease.bind(this);
-  }
-
-  onChange(event) {
+  const onChange = event => {
     let { name, value } = event.target;
     value = value.replace(/\D+/g, "");
-    this.props.onChange(name, Number(value));
-  }
+    props.onChange(name, Number(value));
+  };
 
-  onIncrease() {
-    this.input.current.focus();
-    this.props.onChange(this.props.name, Number(this.props.value) + 1);
-  }
-  onDecrease() {
-    this.input.current.focus();
-    let value = this.props.value === 0 ? 0 : Number(this.props.value) - 1;
-    this.props.onChange(this.props.name, value);
-  }
-  render() {
-    return (
-      <div className="NumberInput">
-        <input
-          placeholder={this.props.label}
-          value={this.props.value}
-          name={this.props.name}
-          ref={this.input}
-          onChange={this.onChange}
+  const onIncrease = () => {
+    input.current.focus();
+    props.onChange(props.name, Number(props.value) + 1);
+  };
+  const onDecrease = () => {
+    input.current.focus();
+    let value = props.value === 0 ? 0 : Number(props.value) - 1;
+    props.onChange(props.name, value);
+  };
+  return (
+    <div className="NumberInput">
+      <input
+        placeholder={props.label}
+        value={props.value}
+        name={props.name}
+        ref={input}
+        onChange={onChange}
+      />
+      <div className="NumberInput-controls">
+        <FontAwesomeIcon
+          icon="angle-up"
+          className="increase"
+          onClick={onIncrease}
         />
-        <div className="NumberInput-controls">
-          <FontAwesomeIcon
-            icon="angle-up"
-            className="increase"
-            onClick={this.onIncrease}
-          />
-          <FontAwesomeIcon
-            icon="angle-down"
-            className="decrease"
-            onClick={this.onDecrease}
-          />
-        </div>
+        <FontAwesomeIcon
+          icon="angle-down"
+          className="decrease"
+          onClick={onDecrease}
+        />
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default NumberInput;
