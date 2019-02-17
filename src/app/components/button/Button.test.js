@@ -1,17 +1,17 @@
-import React from "react";
-import { shallow } from "enzyme";
+import React from 'react';
+import { shallow } from 'enzyme';
+import { Button } from './Button';
 
-import { Button } from "./Button";
+describe('Button', () => {
+  const clickHandler = jest.fn();
+  const component = shallow(<Button onClick={clickHandler} />);
 
-describe("Button", () => {
-  it("should indeed render correctly", () => {
-    const component = shallow(
-      <Button
-        onClick={() => {
-          console.log("I work!");
-        }}
-      />
-    );
+  it('should match snapshot', () => {
     expect(component).toMatchSnapshot();
+  });
+
+  it('should call handler when clicked', () => {
+    component.find('button').simulate('click', { preventDefault: jest.fn() });
+    expect(clickHandler).toBeCalledTimes(1);
   });
 });
