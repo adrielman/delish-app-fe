@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./DropdownInput.scss";
 
-const DropdownInput = props => {
+export const DropdownInput = props => {
   const select = React.createRef();
 
   const onChange = event => {
@@ -38,5 +38,3 @@ const DropdownInput = props => {
     </div>
   );
 };
-
-export default DropdownInput;
