@@ -6,6 +6,7 @@ import "./IngredientForm.scss";
 import { Button } from "../components/button/Button.jsx";
 
 const UNITS = [
+  { value: "", label: "" },
   { value: "teaspoon", label: "teaspoon" },
   { value: "tablespoon", label: "tablespoon" },
   { value: "cup", label: "cup" },

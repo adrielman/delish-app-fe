@@ -22,11 +22,8 @@ const DropdownInput = props => {
         onChange={onChange}
         ref={select}
       >
-        <option key={0} value={""}>
-          {props.label}
-        </option>
         {props.options.map((option, index) => (
-          <option key={index + 1} value={option.value}>
+          <option key={index} value={option.value}>
             {option.label}
           </option>
         ))}
