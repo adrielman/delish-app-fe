@@ -2,51 +2,44 @@ import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./DropdownInput.scss";
 
-class DropdownInput extends Component {
-  constructor(props) {
-    super(props);
-    this.onChange = this.onChange.bind(this);
-    this.select = React.createRef();
-    this.FocusOnSelect = this.FocusOnSelect.bind(this);
-  }
+const DropdownInput = props => {
+  const select = React.createRef();
 
-  onChange(event) {
+  const onChange = event => {
     const { name, value } = event.target;
-    this.props.onChange(name, value);
-  }
+    props.onChange(name, value);
+  };
 
-  FocusOnSelect(event) {
-    this.select.current.focus();
-  }
+  const focusOnSelect = event => {
+    select.current.focus();
+  };
 
-  render() {
-    return (
-      <div className="DropdownInput">
-        <select
-          value={this.props.value}
-          name={this.props.name}
-          onChange={this.onChange}
-          ref={this.select}
-        >
-          <option key={0} value={""}>
-            {this.props.label}
+  return (
+    <div className="DropdownInput">
+      <select
+        value={props.value}
+        name={props.name}
+        onChange={onChange}
+        ref={select}
+      >
+        <option key={0} value={""}>
+          {props.label}
+        </option>
+        {props.options.map((option, index) => (
+          <option key={index + 1} value={option.value}>
+            {option.label}
           </option>
-          {this.props.options.map((option, index) => (
-            <option key={index + 1} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
-        <div className="DropdownInput-control">
-          <FontAwesomeIcon
-            icon="angle-down"
-            className="decrease"
-            onClick={this.FocusOnSelect}
-          />
-        </div>
+        ))}
+      </select>
+      <div className="DropdownInput-control">
+        <FontAwesomeIcon
+          icon="angle-down"
+          className="decrease"
+          onClick={focusOnSelect}
+        />
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default DropdownInput;
