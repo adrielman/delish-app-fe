@@ -1,4 +1,4 @@
-@import "../../../../styles/shared";
+@import '../../../../styles/shared';
 
 .NumberInput {
   display: flex;
@@ -42,10 +42,6 @@
 
     .NumberInput-controls {
       color: darken($primary-color, 20%);
-      .increase,
-      .decrease {
-        height: 40%;
-      }
     }
   }
 }
