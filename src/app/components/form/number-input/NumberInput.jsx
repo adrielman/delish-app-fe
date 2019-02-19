@@ -2,34 +2,38 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './NumberInput.scss';
 
-export const NumberInput = props => {
+export const NumberInput = ({ label, value, name, onChange }) => {
   const input = React.createRef();
 
-  const onChange = event => {
-    let { name, value } = event.target;
-    value = value.replace(/\D+/g, '');
-    props.onChange(name, Number(value));
+  const onChangeHandler = event => {
+    const { name, value } = event.target;
+    onChange(name, sanitize(value));
   };
 
   const onIncrease = () => {
     input.current.focus();
-    props.onChange(props.name, Number(props.value) + 1);
+    onChange(name, sanitize(value) + 1);
   };
 
   const onDecrease = () => {
     input.current.focus();
-    let value = props.value === 0 ? 0 : Number(props.value) - 1;
-    props.onChange(props.name, value);
+    const sanitizedValue = sanitize(value);
+    onChange(name, sanitizedValue === 0 ? 0 : sanitizedValue - 1);
+  };
+
+  const sanitize = value => {
+    const sanitizedValue = value.replace(/\D+/g, '');
+    return Number(sanitizedValue);
   };
 
   return (
     <div className="NumberInput">
       <input
-        placeholder={props.label}
-        value={props.value}
-        name={props.name}
+        placeholder={label}
+        value={value}
+        name={name}
         ref={input}
-        onChange={onChange}
+        onChange={onChangeHandler}
       />
       <div className="NumberInput-controls">
         <div className="increase">
