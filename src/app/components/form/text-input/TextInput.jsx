@@ -1,19 +1,19 @@
-import React from "react";
-import "./TextInput.scss";
+import React from 'react';
+import './TextInput.scss';
 
-export const TextInput = props => {
-  const onChange = event => {
+export const TextInput = ({ label, value, name, onChange }) => {
+  const onChangeHandler = event => {
     const { name, value } = event.target;
-    props.onChange(name, value);
+    onChange(name, value);
   };
 
   return (
     <div className="TextInput">
       <input
-        placeholder={props.label}
-        value={props.value}
-        name={props.name}
-        onChange={onChange}
+        placeholder={label}
+        value={value}
+        name={name}
+        onChange={onChangeHandler}
       />
     </div>
   );
