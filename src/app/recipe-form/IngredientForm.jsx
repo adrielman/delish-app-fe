@@ -25,7 +25,8 @@ class IngredientForm extends Component {
     this.state = {
       name: "",
       amount: 0,
-      unit: ""
+      unit: "",
+      message: ""
     };
 
     this.changeState = this.changeState.bind(this);
@@ -46,7 +47,6 @@ class IngredientForm extends Component {
   submitState() {
     this.props.onSubmit(this.state);
   }
-
   render() {
     return (
       <div className="IngredientForm">
