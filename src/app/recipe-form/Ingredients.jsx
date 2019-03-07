@@ -1,19 +1,59 @@
 import React, { Component } from "react";
 import IngredientForm from "./IngredientForm";
 import IngredientsList from "./IngredientsList";
+import RecipeForm from "./recipeForm";
+import Recipes from "./recipes";
+import { Button } from "../components/button/Button";
+import RecipeSettingsForm from "./recipeSettingsForm";
 
 class Ingredients extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      ingredients: []
+      ingredients: [],
+      recipes: [],
+      ready: false,
+      name: "",
+      source: "",
+      imgUrl: "",
+      description: "",
+      servings: 0
     };
-    this.onSubmit = this.onSubmit.bind(this);
+    this.onAddIngredient = this.onAddIngredient.bind(this);
     this.onDelete = this.onDelete.bind(this);
+    this.onAddInstruction = this.onAddInstruction.bind(this);
+    this.onAddRecipe = this.onAddRecipe.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+    this.onChangeName = this.onChangeName.bind(this);
+    this.onChangeSource = this.onChangeSource.bind(this);
+    this.onImgUrl = this.onImgUrl.bind(this);
+    this.onDescription = this.onDescription.bind(this);
+    this.onServings = this.onServings.bind(this);
   }
-  onSubmit(ingredient) {
+
+  onImgUrl(text) {
+    this.setState({ imgUrl: text });
+  }
+
+  onDescription(text) {
+    this.setState({ description: text });
+  }
+
+  onServings(text) {
+    this.setState({ servings: text });
+  }
+  onAddIngredient(ingredient) {
     this.setState({ ingredients: [...this.state.ingredients, ingredient] });
+  }
+
+  onAddRecipe() {
+    if (
+      this.state.recipes.length !== 0 &&
+      this.state.ingredients.length !== 0
+    ) {
+      this.setState({ ready: true });
+    }
   }
 
   onDelete(index) {
@@ -21,8 +61,66 @@ class Ingredients extends Component {
     newIngredients.splice(index, 1);
     this.setState({ ingredients: newIngredients });
   }
+  onAddInstruction(recipe) {
+    this.setState({ recipes: [...this.state.recipes, recipe] });
+  }
+
+  onSubmit() {
+    let date = new Date();
+
+    let id =
+      "_" +
+      Math.random()
+        .toString(36)
+        .substr(2, 9) +
+      date.getTime();
+    let output = {
+      _id: id,
+      name: this.state.name,
+      description: this.state.description,
+      image: this.state.imgUrl,
+      time: date.getTime(),
+      servings: this.state.servings,
+      link: this.state.source,
+      ingredients: this.state.ingredients,
+      instructions: this.state.recipes
+    };
+    fetch("https://delish-recipe-api.herokuapp.com/api/recipes", {
+      method: "POST",
+      mode: "cors",
+      cache: "no-cache",
+      credentials: "same-origin",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      redirect: "follow",
+      referrer: "no-referrer",
+      body: JSON.stringify(output)
+    }).then(response => response.json()); // parses response to JSON
+
+    console.log(id);
+  }
+  onChangeName(text) {
+    this.setState({ name: text });
+  }
+
+  onChangeSource(text) {
+    this.setState({ source: text });
+  }
 
   render() {
+    if (this.state.ready) {
+      return (
+        <RecipeSettingsForm
+          ChangeName={this.onChangeName}
+          ChangeSoure={this.onChangeSource}
+          onDescription={this.onDescription}
+          onSubmit={this.onSubmit}
+          onImgUrl={this.onImgUrl}
+          onServings={this.onServings}
+        />
+      );
+    }
     return (
       <div className="IngredientsList">
         <IngredientsList
@@ -31,8 +129,11 @@ class Ingredients extends Component {
         />
         <IngredientForm
           className="IngredientsList-form"
-          onSubmit={this.onSubmit}
+          onSubmit={this.onAddIngredient}
         />
+        <RecipeForm onAdd={this.onAddInstruction} />
+        <Recipes recipes={this.state.recipes} onDelete="potato" />
+        <Button text="Push" onClick={this.onAddRecipe} />
       </div>
     );
   }
