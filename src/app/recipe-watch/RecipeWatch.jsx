@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button } from "../components/button/Button";
+import { deleteRecipe } from "../recipe-form/RecipeApi";
 
 class RecipeWatch extends Component {
   constructor(props) {
@@ -11,6 +12,24 @@ class RecipeWatch extends Component {
 
   ViewMe(index) {
     this.setState({ toWatch: index });
+  }
+  DeleteMe(id) {
+    console.log(id);
+    deleteRecipe(id);
+    // fetch("https://delish-recipe-api.herokuapp.com/api/recipes/" + id, {
+    //   method: "DELETE",
+    //   mode: "cors",
+    //   cache: "no-cache",
+    //   credentials: "same-origin",
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   },
+    //   redirect: "follow",
+    //   referrer: "no-referrer"
+    // }).then(response => {
+    //   response.json();
+    //   console.log(response);
+    // });
   }
   render() {
     if (this.state.isLoading) {
@@ -29,7 +48,7 @@ class RecipeWatch extends Component {
                 onClick={() => {
                   this.ViewMe(-1);
                 }}
-                text="X"
+                text="X "
               />
             </span>
             <br />
@@ -73,11 +92,6 @@ class RecipeWatch extends Component {
             </a>
           </div>
         );
-        // return (
-        //   <div className="recipe-watch">
-        //     to watch Not Existing of {this.state.toWatch}!
-        //   </div>
-        // );
       }
       return (
         <div className="recipe-watch">
@@ -89,9 +103,15 @@ class RecipeWatch extends Component {
                     this.ViewMe(index);
                   }}
                   text="Watch"
-                />{" "}
+                />
                 {recipe.name} <br />
                 <img src={recipe.image} alt="not found this img" />
+                <Button
+                  onClick={() => {
+                    this.DeleteMe(recipe._id);
+                  }}
+                  text="Watch"
+                />
               </li>
             ))}
           </ul>
