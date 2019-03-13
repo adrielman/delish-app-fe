@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./NumberInput.scss";
+import styles from "./NumberInput.module.scss";
 
 export const NumberInput = ({ label, value, name, onChange }) => {
   const input = React.createRef();
@@ -27,7 +27,7 @@ export const NumberInput = ({ label, value, name, onChange }) => {
   };
 
   return (
-    <div className="NumberInput">
+    <div className={styles.input}>
       <input
         placeholder={label}
         value={value}
@@ -35,11 +35,11 @@ export const NumberInput = ({ label, value, name, onChange }) => {
         ref={input}
         onChange={onChangeHandler}
       />
-      <div className="NumberInput-controls">
-        <div className="increase">
+      <div className={styles.controls}>
+        <div className={styles.increase}>
           <FontAwesomeIcon icon="angle-up" onClick={onIncrease} />
         </div>
-        <div className="decrease">
+        <div className={styles.decrease}>
           <FontAwesomeIcon icon="angle-down" onClick={onDecrease} />
         </div>
       </div>

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { NumberInput } from "../components/form/number-input/NumberInput";
 import { TextInput } from "../components/form/text-input/TextInput";
 import { DropdownInput } from "../components/form/dropdown-input/DropdownInput";
-import "./IngredientForm.scss";
+import styles from "./IngredientForm.module.scss";
 import { Button } from "../components/button/Button.jsx";
 
 const UNITS = [
@@ -49,11 +49,11 @@ class IngredientForm extends Component {
   }
   render() {
     return (
-      <div className="IngredientForm">
-        <div className="IngredientForm-label">
+      <div className={styles.container}>
+        <div className={styles.preview}>
           {this.state.name} {this.state.amount} {this.state.unit}
         </div>
-        <div className="IngredientForm-form">
+        <div className={styles.form}>
           <TextInput
             label="Ingredient"
             name="name"

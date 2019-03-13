@@ -1,5 +1,5 @@
-import React from 'react';
-import './TextInput.scss';
+import React from "react";
+import styles from "./TextInput.module.scss";
 
 export const TextInput = ({ label, value, name, onChange }) => {
   const onChangeHandler = event => {
@@ -8,7 +8,7 @@ export const TextInput = ({ label, value, name, onChange }) => {
   };
 
   return (
-    <div className="TextInput">
+    <div className={styles.input}>
       <input
         placeholder={label}
         value={value}

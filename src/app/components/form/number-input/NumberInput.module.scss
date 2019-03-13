@@ -1,12 +1,12 @@
-@import '../../../../styles/shared';
+@import "../../../../styles/shared";
 
-.NumberInput {
+.input {
   display: flex;
   color: $input-color;
   input {
     width: 80px;
   }
-  .NumberInput-controls {
+  .controls {
     align-items: center;
     color: $input-bg-color;
     display: flex;
@@ -40,7 +40,7 @@
       }
     }
 
-    .NumberInput-controls {
+    .controls {
       color: darken($primary-color, 20%);
     }
   }

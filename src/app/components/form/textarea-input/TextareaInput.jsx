@@ -1,5 +1,5 @@
 import React from "react";
-import "./TextareaInput.scss";
+import styles from "./TextareaInput.module.scss";
 
 export const TextareaInput = ({
   id,
@@ -10,9 +10,8 @@ export const TextareaInput = ({
   rows
 }) => {
   return (
-    <div>
+    <div className={styles.input}>
       <textarea
-        className="TextareaInput"
         placeholder={placeholder}
         name={name}
         id={id}

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./IngredientForm.scss";
+import styles from "./IngredientForm.module.scss";
 import { Button } from "../components/button/Button.jsx";
 import { TextareaInput } from "../components/form/textarea-input/TextareaInput";
 
@@ -26,14 +26,14 @@ class RecipeForm extends Component {
 
   render() {
     return (
-      <div className="Recipe-Form">
+      <div className={styles.container}>
         <TextareaInput
           onChange={this.onChangeTextField}
           name="it's lit"
           cols="30"
           rows="10"
         />
-        <div className="Recipe-Form-Button">
+        <div className={styles.button}>
           <Button onClick={this.onSubmitTextField} text={"Add"} />
         </div>
       </div>

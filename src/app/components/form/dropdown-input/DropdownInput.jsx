@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./DropdownInput.scss";
+import styles from "./DropdownInput.module.scss";
 
 export const DropdownInput = props => {
   const select = React.createRef();
@@ -15,7 +15,7 @@ export const DropdownInput = props => {
   };
 
   return (
-    <div className="DropdownInput">
+    <div className={styles.input}>
       <select
         value={props.value}
         name={props.name}
@@ -28,7 +28,7 @@ export const DropdownInput = props => {
           </option>
         ))}
       </select>
-      <div className="DropdownInput-control">
+      <div className={styles.control}>
         <FontAwesomeIcon
           icon="angle-down"
           className="decrease"

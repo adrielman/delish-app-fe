@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import "./App.scss";
+import styles from "./App.module.scss";
 import "./Icons";
 
 import Ingredients from "./recipe-form/Ingredients";
@@ -26,7 +26,7 @@ class App extends Component {
               <Link to="/NewRecipe">New Recipe</Link>
             </span>
           </nav>
-          <div className="App">
+          <div className={styles.app}>
             <Route exact path="/" component={Home} />
             <Route path="/AllRecipes" component={AllRecipes} />
             <Route path="/NewRecipe" component={NewRecipe} />
