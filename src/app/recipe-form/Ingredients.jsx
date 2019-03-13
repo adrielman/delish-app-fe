@@ -68,14 +68,7 @@ class Ingredients extends Component {
   onSubmit() {
     let date = new Date();
 
-    let id =
-      "_" +
-      Math.random()
-        .toString(36)
-        .substr(2, 9) +
-      date.getTime();
     let output = {
-      _id: id,
       name: this.state.name,
       description: this.state.description,
       image: this.state.imgUrl,
@@ -98,7 +91,7 @@ class Ingredients extends Component {
       body: JSON.stringify(output)
     }).then(response => response.json()); // parses response to JSON
 
-    console.log(id);
+    console.log(JSON.stringify(output));
   }
   onChangeName(text) {
     this.setState({ name: text });
@@ -113,6 +106,7 @@ class Ingredients extends Component {
       return (
         <RecipeSettingsForm
           ChangeName={this.onChangeName}
+          value={this.state.servings}
           ChangeSoure={this.onChangeSource}
           onDescription={this.onDescription}
           onSubmit={this.onSubmit}
