@@ -2,4 +2,7 @@
 
 .input {
   display: flex;
+  input {
+    @extend %input;
+  }
 }

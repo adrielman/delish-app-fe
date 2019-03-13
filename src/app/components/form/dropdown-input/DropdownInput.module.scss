@@ -2,7 +2,11 @@
 
 .input {
   display: flex;
-
+  select {
+    @extend %input;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
   .control {
     color: white;
     position: relative;

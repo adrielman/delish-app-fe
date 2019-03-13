@@ -4,19 +4,8 @@
   display: flex;
 
   textarea {
+    @extend %input;
     color: $input-color;
     width: 100%;
-
-    &:hover {
-      color: darken($primary-color, 20%);
-      // input {
-      //   border: 3px solid darken($primary-color, 20%);
-      //   color: darken($primary-color, 20%);
-      //   &:focus {
-      //     border: 3px solid $primary-color;
-      //     color: $primary-color;
-      //   }
-      // }
-    }
   }
 }
