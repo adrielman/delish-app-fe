@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "../components/button/Button";
 import { TextInput } from "../components/form/text-input/TextInput";
-import { TextAreaInput } from "../components/form/text-area/TextAreaInput";
+import { TextareaInput } from "../components/form/textarea-input/TextareaInput";
 import { NumberInput } from "../components/form/number-input/NumberInput";
 
 const SettingsForm = props => {
@@ -30,8 +30,13 @@ const SettingsForm = props => {
       <TextInput label="Name" name="name" onChange={ChangeName} />
       <TextInput label="Source" name="source" onChange={ChangeSource} />
       <TextInput label="ImageUrl" name="ImageUrl" onChange={onImgUrl} />
-      <NumberInput label="NumberInput" name="Servings" onChange={onServings} />
-      <TextAreaInput
+      <NumberInput
+        value={props.value}
+        label="NumberInput"
+        name="Servings"
+        onChange={onServings}
+      />
+      <TextareaInput
         label="TextArea"
         name="TextArea"
         onChange={ChangeDescription}

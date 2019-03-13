@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./IngredientForm.scss";
 import { Button } from "../components/button/Button.jsx";
-import { TextAreaInput } from "../components/form/text-area/TextAreaInput";
+import { TextareaInput } from "../components/form/textarea-input/TextareaInput";
 
 class RecipeForm extends Component {
   constructor(props) {
@@ -27,7 +27,7 @@ class RecipeForm extends Component {
   render() {
     return (
       <div className="Recipe-Form">
-        <TextAreaInput
+        <TextareaInput
           onChange={this.onChangeTextField}
           name="it's lit"
           cols="30"
