@@ -1,7 +1,7 @@
 import React from "react";
-import "./TextAreaInput.scss";
+import "./TextareaInput.scss";
 
-export const TextAreaInput = ({
+export const TextareaInput = ({
   id,
   name,
   placeholder,
@@ -12,6 +12,7 @@ export const TextAreaInput = ({
   return (
     <div>
       <textarea
+        className="TextareaInput"
         placeholder={placeholder}
         name={name}
         id={id}
