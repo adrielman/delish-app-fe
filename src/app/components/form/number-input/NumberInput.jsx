@@ -1,6 +1,6 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import './NumberInput.scss';
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "./NumberInput.scss";
 
 export const NumberInput = ({ label, value, name, onChange }) => {
   const input = React.createRef();
@@ -22,7 +22,7 @@ export const NumberInput = ({ label, value, name, onChange }) => {
   };
 
   const sanitize = value => {
-    const sanitizedValue = value.replace(/\D+/g, '');
+    const sanitizedValue = value.toString().replace(/\D+/g, "");
     return Number(sanitizedValue);
   };
 
