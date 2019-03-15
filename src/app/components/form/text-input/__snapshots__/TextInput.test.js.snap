@@ -2,7 +2,7 @@
 
 exports[`TextInput should match snapshot 1`] = `
 <div
-  className="TextInput"
+  className="input"
 >
   <input
     name="Name"
