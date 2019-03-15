@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import styles from "./App.module.scss";
 import "./Icons";
 
-import { Navigation } from "./components/navigation/Navigation";
+import { Navigation, Link } from "./components/navigation/Navigation";
 import Ingredients from "./recipe-form/Ingredients";
 import RecipeWatch from "./recipe-watch/RecipeWatch";
 
@@ -12,7 +12,12 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Navigation />
+          <Navigation>
+            <Link to="/" exact>
+              Recipes
+            </Link>
+            <Link to="/new-recipe">New Recipe</Link>
+          </Navigation>
           <div className={styles.app}>
             <Route exact path="/" component={NewRecipe} />
             <Route path="/recipes" component={Recipes} />

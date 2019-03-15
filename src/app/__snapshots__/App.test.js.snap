@@ -1,9 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should match snapshot 1`] = `
-<div
-  className="App"
->
-  <Ingredients />
-</div>
+<BrowserRouter>
+  <div>
+    <Navigation>
+      <Link
+        exact={true}
+        to="/"
+      >
+        Recipes
+      </Link>
+      <Link
+        to="/new-recipe"
+      >
+        New Recipe
+      </Link>
+    </Navigation>
+    <div
+      className="app"
+    >
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/"
+      />
+      <Route
+        component={[Function]}
+        path="/recipes"
+      />
+      <Route
+        component={[Function]}
+        path="/new-recipe"
+      />
+    </div>
+  </div>
+</BrowserRouter>
 `;
