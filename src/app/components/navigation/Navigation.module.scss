@@ -1,0 +1,36 @@
+@import "../../../styles/shared";
+
+.navigation {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  background-color: $nav-bg-color;
+
+  .link {
+    font: bold 16px "Roboto", sans-serif;
+    a {
+      @extend %transition;
+      display: block;
+      padding: 2em 1em;
+      margin: 0 1em;
+      border-bottom: 3px solid $nav-bg-color;
+      color: $nav-link-color;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      &.selected {
+        border-bottom: 3px solid $nav-link-color;
+      }
+
+      &:hover {
+        color: $nav-link-hover-color;
+        border-bottom: 3px solid $nav-link-hover-color;
+      }
+
+      &:active {
+        color: $nav-link-active-color;
+        border-bottom: 3px solid $nav-link-active-color;
+      }
+    }
+  }
+}

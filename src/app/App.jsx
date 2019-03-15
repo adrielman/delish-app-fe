@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import styles from "./App.module.scss";
 import "./Icons";
 
+import { Navigation } from "./components/navigation/Navigation";
 import Ingredients from "./recipe-form/Ingredients";
 import RecipeWatch from "./recipe-watch/RecipeWatch";
 
@@ -11,25 +12,11 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <nav>
-            <span>
-              <Link to="/">Home</Link>
-            </span>
-
-            <span>
-              <Link to="/">My Recipes</Link>
-            </span>
-            <span>
-              <Link to="/AllRecipes">AllRecipes</Link>
-            </span>
-            <span>
-              <Link to="/NewRecipe">New Recipe</Link>
-            </span>
-          </nav>
+          <Navigation />
           <div className={styles.app}>
-            <Route exact path="/" component={Home} />
-            <Route path="/AllRecipes" component={AllRecipes} />
-            <Route path="/NewRecipe" component={NewRecipe} />
+            <Route exact path="/" component={NewRecipe} />
+            <Route path="/recipes" component={Recipes} />
+            <Route path="/new-recipe" component={NewRecipe} />
           </div>
         </div>
       </Router>
@@ -37,15 +24,7 @@ class App extends Component {
   }
 }
 
-function Home() {
-  return (
-    <div>
-      <h2>Home</h2>
-    </div>
-  );
-}
-
-function AllRecipes() {
+function Recipes() {
   return (
     <div>
       <RecipeWatch />
