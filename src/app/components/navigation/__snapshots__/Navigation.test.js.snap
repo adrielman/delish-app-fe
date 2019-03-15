@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigation link should match snapshot 1`] = `
+<div
+  className="link"
+>
+  <NavLink
+    activeClassName="selected"
+    aria-current="page"
+    to="/link1"
+  >
+    Link1
+  </NavLink>
+</div>
+`;
+
+exports[`Navigation should match snapshot 1`] = `
+<nav
+  className="navigation"
+>
+  <Link
+    exact={true}
+    to="/"
+  >
+    Home
+  </Link>
+  <Link
+    to="/link1"
+  >
+    Link1
+  </Link>
+  <Link
+    to="/link2"
+  >
+    Link2
+  </Link>
+</nav>
+`;
