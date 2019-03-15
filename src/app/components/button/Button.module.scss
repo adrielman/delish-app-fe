@@ -3,7 +3,7 @@
 button {
   @extend %transition;
   background-color: $primary-color;
-  border: 3px solid transparent;
+  border: $border-style transparent;
   border-radius: 5px;
   color: white;
   font: bold 15px "Roboto", sans-serif;

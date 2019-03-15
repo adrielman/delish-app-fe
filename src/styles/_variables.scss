@@ -11,3 +11,6 @@ $nav-bg-color: darken($bg-color, 2%);
 $nav-link-color: #3b7997;
 $nav-link-hover-color: $primary-color;
 $nav-link-active-color: lighten($primary-color, 30%);
+
+$border-size: 3px;
+$border-style: $border-size solid;

@@ -18,18 +18,18 @@
   @extend %interactive-element;
   @extend %transition;
   background: $input-bg-color;
-  border: 3px solid transparent;
+  border: $border-style transparent;
   border-radius: 5px;
   font: bold 15px "Roboto", sans-serif;
   margin: 1em;
   padding: 1em;
 
   &:hover {
-    border: 3px solid $input-hover-color;
+    border: $border-style $input-hover-color;
   }
 
   &:focus {
-    border: 3px solid $primary-color;
+    border: $border-style $primary-color;
   }
 }
 

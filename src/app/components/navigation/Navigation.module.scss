@@ -13,23 +13,23 @@
       display: block;
       padding: 2em 1em;
       margin: 0 1em;
-      border-bottom: 3px solid $nav-bg-color;
+      border-bottom: $border-style $nav-bg-color;
       color: $nav-link-color;
       text-decoration: none;
       text-transform: uppercase;
 
       &.selected {
-        border-bottom: 3px solid $nav-link-color;
+        border-bottom: $border-style $nav-link-color;
       }
 
       &:hover {
         color: $nav-link-hover-color;
-        border-bottom: 3px solid $nav-link-hover-color;
+        border-bottom: $border-style $nav-link-hover-color;
       }
 
       &:active {
         color: $nav-link-active-color;
-        border-bottom: 3px solid $nav-link-active-color;
+        border-bottom: $border-style $nav-link-active-color;
       }
     }
   }
