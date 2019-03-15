@@ -5,7 +5,7 @@ import "./Icons";
 
 import { Navigation, Link } from "./components/navigation/Navigation";
 import Ingredients from "./recipe-form/Ingredients";
-import RecipeWatch from "./recipe-watch/RecipeWatch";
+import Recipes from "./recipes/Recipes";
 
 class App extends Component {
   render() {
@@ -13,35 +13,20 @@ class App extends Component {
       <Router>
         <div>
           <Navigation>
-            <Link to="/" exact>
+            <Link to="/recipes" exact>
               Recipes
             </Link>
             <Link to="/new-recipe">New Recipe</Link>
           </Navigation>
           <div className={styles.app}>
-            <Route exact path="/" component={NewRecipe} />
+            <Route exact path="/" component={Ingredients} />
             <Route path="/recipes" component={Recipes} />
-            <Route path="/new-recipe" component={NewRecipe} />
+            <Route path="/new-recipe" component={Ingredients} />
           </div>
         </div>
       </Router>
     );
   }
-}
-
-function Recipes() {
-  return (
-    <div>
-      <RecipeWatch />
-    </div>
-  );
-}
-function NewRecipe() {
-  return (
-    <div>
-      <Ingredients />
-    </div>
-  );
 }
 
 export default App;

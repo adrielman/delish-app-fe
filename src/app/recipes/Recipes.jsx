@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Button } from "../components/button/Button";
 import { deleteRecipe } from "../recipe-form/RecipeApi";
 
-class RecipeWatch extends Component {
+class Recipes extends Component {
   constructor(props) {
     super(props);
 
@@ -53,41 +53,27 @@ class RecipeWatch extends Component {
             </span>
             <br />
             <span>
-              <img
-                src={this.state.recipes[this.state.toWatch].image}
-                alt="not found img"
-              />
+              <img src={this.state.recipes[this.state.toWatch].image} alt="not found img" />
             </span>
             <ul>
-              {this.state.recipes[this.state.toWatch].ingredients.map(
-                (ingredient, index) => (
-                  <li key={index}>
-                    {ingredient.amount} : {ingredient.name}
-                  </li>
-                )
-              )}
+              {this.state.recipes[this.state.toWatch].ingredients.map((ingredient, index) => (
+                <li key={index}>
+                  {ingredient.amount} : {ingredient.name}
+                </li>
+              ))}
             </ul>
 
             <ul>
-              {this.state.recipes[this.state.toWatch].instructions.map(
-                (instriction, index) => (
-                  <li key={index}>{instriction.message}</li>
-                )
-              )}
+              {this.state.recipes[this.state.toWatch].instructions.map((instriction, index) => (
+                <li key={index}>{instriction.message}</li>
+              ))}
             </ul>
-            <span>
-              Serving for {this.state.recipes[this.state.toWatch].servings}
-            </span>
+            <span>Serving for {this.state.recipes[this.state.toWatch].servings}</span>
             <br />
             <br />
             <span>{this.state.recipes[this.state.toWatch].time}</span>
             <br />
-            <a
-              href={this.state.recipes[this.state.toWatch].link}
-              target="_blank"
-              without
-              rel="noopener noreferrer"
-            >
+            <a href={this.state.recipes[this.state.toWatch].link} target="_blank" without rel="noopener noreferrer">
               Origin
             </a>
           </div>
@@ -129,4 +115,4 @@ class RecipeWatch extends Component {
   }
 }
 
-export default RecipeWatch;
+export default Recipes;
