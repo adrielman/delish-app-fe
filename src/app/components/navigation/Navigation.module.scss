@@ -12,7 +12,7 @@
       @extend %transition;
       display: block;
       padding: 2em 1em;
-      margin: 0 1em;
+      margin: 0 $spacing;
       border-bottom: $border-style $nav-bg-color;
       color: $nav-link-color;
       text-decoration: none;

@@ -7,7 +7,7 @@ button {
   border: $border-style transparent;
   border-radius: 5px;
   color: white;
-  margin: 1em;
+  margin: $spacing;
   padding: 1em;
 
   &:hover {

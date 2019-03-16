@@ -1,7 +1,3 @@
-$font-size: 15px;
-$text-font-family: "Josefin Sans", sans-serif;
-$number-font-family: "B612 Mono", monospace;
-
 $primary-color: #d37001;
 $bg-color: #08202a;
 $text-color: #3b7997;
@@ -18,3 +14,9 @@ $nav-link-active-color: lighten($primary-color, 30%);
 
 $border-size: 3px;
 $border-style: $border-size solid;
+
+$font-size: 15px;
+$text-font-family: "Josefin Sans", sans-serif;
+$number-font-family: "B612 Mono", monospace;
+
+$spacing: 15px;
