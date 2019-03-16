@@ -7,9 +7,9 @@ export const Ingredients = ({ data, onChange }) => {
     onChange([...data, ingredient]);
   };
 
-  const onDelete = index => {
-    onChange(data.splice(index, 1));
-  };
+  // const onDelete = index => {
+  //   onChange(data.splice(index, 1));
+  // };
 
   return (
     <div>
