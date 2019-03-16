@@ -1,0 +1,16 @@
+@import "../../../styles/shared";
+.ingredient {
+  display: flex;
+  align-items: flex-end;
+}
+
+.name {
+}
+.unit {
+  font-weight: bold;
+  margin-right: 0.3em;
+}
+.amount {
+  font: $font-size * 0.9 $number-font-family;
+  margin-right: 0.3em;
+}
