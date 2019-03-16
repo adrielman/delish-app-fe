@@ -16,6 +16,10 @@ button {
   padding: 0.1em;
 }
 
+.nospacing {
+  margin: 0;
+}
+
 @mixin button-type($type, $bg, $color) {
   .#{$type} {
     color: $color;

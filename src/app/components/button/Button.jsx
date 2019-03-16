@@ -12,7 +12,9 @@ export const Button = ({
   onClick,
   children,
   compact = false,
-  type = ButtonType.Default
+  nospacing = false,
+  type = ButtonType.Default,
+  style
 }) => {
   const clickHandler = event => {
     event.preventDefault();
@@ -20,12 +22,13 @@ export const Button = ({
   };
   let buttonStyle = classNames(styles.button, {
     [styles.compact]: compact,
+    [styles.nospacing]: nospacing,
     [styles.danger]: type === ButtonType.Danger,
     [styles.default]: type === ButtonType.Default,
     [styles.primary]: type === ButtonType.Primary
   });
   return (
-    <button className={buttonStyle} onClick={clickHandler}>
+    <button className={buttonStyle} onClick={clickHandler} style={style}>
       {children}
     </button>
   );

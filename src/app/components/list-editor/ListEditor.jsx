@@ -48,7 +48,8 @@ export const ListEditor = ({
                     onClick={() => {
                       setEditIndex(index);
                     }}
-                    compact>
+                    compact
+                    style={{ marginLeft: "1em" }}>
                     <FontAwesomeIcon icon="pen" />
                   </Button>
                   <Button
@@ -56,7 +57,8 @@ export const ListEditor = ({
                     onClick={() => {
                       onDelete(index);
                     }}
-                    compact>
+                    compact
+                    style={{ marginLeft: "1em" }}>
                     <FontAwesomeIcon icon="times" />
                   </Button>
                 </div>
@@ -74,7 +76,8 @@ export const ListEditor = ({
           onClick={() => {
             setEditIndex(newItemIndex);
           }}
-          compact>
+          style={{ marginTop: "1em" }}
+          nospacing>
           <FontAwesomeIcon icon="plus" />
         </Button>
       )}
