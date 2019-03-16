@@ -3,32 +3,28 @@
 %transition {
   transition: 0.5s ease;
 }
-%interactive-element {
-  color: $input-color;
-  &:hover {
-    color: $input-hover-color;
-  }
 
-  &:focus {
-    color: $primary-color;
-  }
+%interactive-element {
+  font: bold $font-size $text-font-family;
 }
 
 %input {
   @extend %interactive-element;
   @extend %transition;
+  color: $input-color;
   background: $input-bg-color;
   border: $border-style transparent;
   border-radius: 5px;
-  font: bold 15px "Roboto", sans-serif;
   margin: 1em;
   padding: 1em;
 
   &:hover {
+    color: $input-hover-color;
     border: $border-style $input-hover-color;
   }
 
   &:focus {
+    color: $primary-color;
     border: $border-style $primary-color;
   }
 }

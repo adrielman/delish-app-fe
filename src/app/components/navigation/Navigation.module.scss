@@ -1,13 +1,13 @@
 @import "../../../styles/shared";
 
 .navigation {
+  @extend %interactive-element;
   position: fixed;
   display: flex;
   width: 100%;
   background-color: $nav-bg-color;
 
   .link {
-    font: bold 16px "Roboto", sans-serif;
     a {
       @extend %transition;
       display: block;

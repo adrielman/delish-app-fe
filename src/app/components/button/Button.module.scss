@@ -1,12 +1,12 @@
 @import "../../../styles/shared";
 
 button {
+  @extend %interactive-element;
   @extend %transition;
   background-color: $primary-color;
   border: $border-style transparent;
   border-radius: 5px;
   color: white;
-  font: bold 15px "Roboto", sans-serif;
   margin: 1em;
   padding: 1em;
 
