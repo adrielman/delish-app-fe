@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { Button } from "../button/Button";
+import { Button, ButtonType } from "../button/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./ListEditor.module.scss";
 
@@ -25,6 +25,10 @@ export const ListEditor = ({
     setEditIndex(defaultIndex);
   };
 
+  const onDelete = (ingredient, index) => {
+    setEditIndex(defaultIndex);
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.title}>{title}</div>
@@ -47,6 +51,14 @@ export const ListEditor = ({
                     compact>
                     <FontAwesomeIcon icon="pen" />
                   </Button>
+                  <Button
+                    type={ButtonType.Danger}
+                    onClick={() => {
+                      onDelete(index);
+                    }}
+                    compact>
+                    <FontAwesomeIcon icon="times" />
+                  </Button>
                 </div>
               </Fragment>
             )}
@@ -58,6 +70,7 @@ export const ListEditor = ({
         <EditorComponent onSubmit={onAdd} />
       ) : (
         <Button
+          type={ButtonType.Primary}
           onClick={() => {
             setEditIndex(newItemIndex);
           }}

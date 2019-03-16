@@ -3,22 +3,33 @@
 button {
   @extend %interactive-element;
   @extend %transition;
-  background-color: $primary-color;
+
   border: $border-style transparent;
   border-radius: 5px;
   color: white;
   margin: $spacing;
   padding: 1em;
-
-  &:hover {
-    background-color: lighten($primary-color, 10%);
-  }
-
-  &:focus {
-    background-color: lighten($primary-color, 15%);
-  }
+  min-width: 25px;
 }
 
 .compact {
   padding: 0.1em;
 }
+
+@mixin button-type($type, $bg, $color) {
+  .#{$type} {
+    color: $color;
+    background-color: $bg;
+    &:hover {
+      background-color: lighten($bg, 10%);
+    }
+
+    &:focus {
+      background-color: lighten($bg, 15%);
+    }
+  }
+}
+
+@include button-type("default", $text-color, white);
+@include button-type("primary", $primary-color, white);
+@include button-type("danger", $danger-color, white);
