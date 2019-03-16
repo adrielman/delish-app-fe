@@ -18,6 +18,10 @@
   margin: 1em;
   padding: 1em;
 
+  &::placeholder {
+    color: rgba($input-color, 0.5);
+  }
+
   &:hover {
     color: $input-hover-color;
     border: $border-style $input-hover-color;
