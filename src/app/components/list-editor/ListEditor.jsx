@@ -49,6 +49,7 @@ export const ListEditor = ({
                       setEditIndex(index);
                     }}
                     compact
+                    nospacing
                     style={{ marginLeft: "1em" }}>
                     <FontAwesomeIcon icon="pen" />
                   </Button>
@@ -58,6 +59,7 @@ export const ListEditor = ({
                       onDelete(index);
                     }}
                     compact
+                    nospacing
                     style={{ marginLeft: "1em" }}>
                     <FontAwesomeIcon icon="times" />
                   </Button>
