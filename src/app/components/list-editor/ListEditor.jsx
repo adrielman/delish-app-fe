@@ -15,11 +15,13 @@ export const ListEditor = ({
   const [editIndex, setEditIndex] = useState(defaultIndex);
   const onAdd = ingredient => {
     onChange([...data, ingredient]);
+    setEditIndex(defaultIndex);
   };
   const onEdit = (ingredient, index) => {
     let dataArray = data.slice();
     dataArray[index] = ingredient;
     onChange(dataArray);
+    setEditIndex(defaultIndex);
   };
 
   return (
@@ -41,7 +43,7 @@ export const ListEditor = ({
                     setEditIndex(index);
                   }}
                 >
-                  <div> potato </div>
+                  o
                 </Button>
               </div>
             )}
