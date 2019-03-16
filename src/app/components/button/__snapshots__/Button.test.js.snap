@@ -6,3 +6,10 @@ exports[`Button should match snapshot 1`] = `
   onClick={[Function]}
 />
 `;
+
+exports[`Button should match snapshot when compact 1`] = `
+<button
+  className="button compact"
+  onClick={[Function]}
+/>
+`;
