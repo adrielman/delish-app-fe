@@ -48,32 +48,47 @@ class Recipes extends Component {
                 onClick={() => {
                   this.ViewMe(-1);
                 }}
-                text="X "
-              />
+              >
+                X
+              </Button>
             </span>
             <br />
             <span>
-              <img src={this.state.recipes[this.state.toWatch].image} alt="not found img" />
+              <img
+                src={this.state.recipes[this.state.toWatch].image}
+                alt="not found img"
+              />
             </span>
             <ul>
-              {this.state.recipes[this.state.toWatch].ingredients.map((ingredient, index) => (
-                <li key={index}>
-                  {ingredient.amount} : {ingredient.name}
-                </li>
-              ))}
+              {this.state.recipes[this.state.toWatch].ingredients.map(
+                (ingredient, index) => (
+                  <li key={index}>
+                    {ingredient.amount} : {ingredient.name}
+                  </li>
+                )
+              )}
             </ul>
 
             <ul>
-              {this.state.recipes[this.state.toWatch].instructions.map((instriction, index) => (
-                <li key={index}>{instriction.message}</li>
-              ))}
+              {this.state.recipes[this.state.toWatch].instructions.map(
+                (instriction, index) => (
+                  <li key={index}>{instriction.message}</li>
+                )
+              )}
             </ul>
-            <span>Serving for {this.state.recipes[this.state.toWatch].servings}</span>
+            <span>
+              Serving for {this.state.recipes[this.state.toWatch].servings}
+            </span>
             <br />
             <br />
             <span>{this.state.recipes[this.state.toWatch].time}</span>
             <br />
-            <a href={this.state.recipes[this.state.toWatch].link} target="_blank" without rel="noopener noreferrer">
+            <a
+              href={this.state.recipes[this.state.toWatch].link}
+              target="_blank"
+              without
+              rel="noopener noreferrer"
+            >
               Origin
             </a>
           </div>
@@ -88,16 +103,18 @@ class Recipes extends Component {
                   onClick={() => {
                     this.ViewMe(index);
                   }}
-                  text="Watch"
-                />
+                >
+                  Watch
+                </Button>
                 {recipe.name} <br />
                 <img src={recipe.image} alt="not found this img" />
                 <Button
                   onClick={() => {
                     this.DeleteMe(recipe._id);
                   }}
-                  text="Watch"
-                />
+                >
+                  Watch
+                </Button>
               </li>
             ))}
           </ul>

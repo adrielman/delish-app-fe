@@ -37,11 +37,12 @@ export const ListEditor = ({
               <div>
                 <DisplayComponent {...item} />
                 <Button
-                  text={<div> potato </div>}
                   onClick={() => {
                     setEditIndex(index);
                   }}
-                />
+                >
+                  <div> potato </div>
+                </Button>
               </div>
             )}
           </li>

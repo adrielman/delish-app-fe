@@ -45,7 +45,7 @@ export const RecipeEditor = props => {
           title="ingredients"
           onChange={newIngredients => setIngredients(newIngredients)}
         />
-        <Button text="Save" onClick={onSubmit} />
+        <Button onClick={onSubmit}>Save</Button>
       </form>
     </div>
   );

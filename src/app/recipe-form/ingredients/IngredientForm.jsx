@@ -70,7 +70,7 @@ class IngredientForm extends Component {
             options={UNITS}
             onChange={this.changeState}
           />
-          <Button onClick={this.submitState} text={"Add"} />
+          <Button onClick={this.submitState}>Add</Button>
         </div>
       </div>
     );
