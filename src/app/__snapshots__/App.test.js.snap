@@ -26,11 +26,11 @@ exports[`should match snapshot 1`] = `
       />
       <Route
         component={[Function]}
-        path="/recipes"
+        path="/new-recipe"
       />
       <Route
         component={[Function]}
-        path="/new-recipe"
+        path="/recipes"
       />
     </div>
   </div>
