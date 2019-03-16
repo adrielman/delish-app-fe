@@ -27,4 +27,14 @@ li {
 
 .actions {
   margin-left: auto;
+
+  .edit,
+  .delete {
+    display: inline-block;
+    margin-left: 1em;
+  }
+}
+
+.add {
+  margin-top: 1em;
 }

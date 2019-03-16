@@ -44,25 +44,27 @@ export const ListEditor = ({
               <Fragment>
                 <DisplayComponent {...item} />
                 <div className={styles.actions}>
-                  <Button
-                    onClick={() => {
-                      setEditIndex(index);
-                    }}
-                    compact
-                    nospacing
-                    style={{ marginLeft: "1em" }}>
-                    <FontAwesomeIcon icon="pen" />
-                  </Button>
-                  <Button
-                    type={ButtonType.Danger}
-                    onClick={() => {
-                      onDelete(index);
-                    }}
-                    compact
-                    nospacing
-                    style={{ marginLeft: "1em" }}>
-                    <FontAwesomeIcon icon="times" />
-                  </Button>
+                  <div className={styles.edit}>
+                    <Button
+                      onClick={() => {
+                        setEditIndex(index);
+                      }}
+                      compact
+                      nospacing>
+                      <FontAwesomeIcon icon="pen" />
+                    </Button>
+                  </div>
+                  <div className={styles.delete}>
+                    <Button
+                      type={ButtonType.Danger}
+                      onClick={() => {
+                        onDelete(index);
+                      }}
+                      compact
+                      nospacing>
+                      <FontAwesomeIcon icon="times" />
+                    </Button>
+                  </div>
                 </div>
               </Fragment>
             )}
@@ -73,15 +75,17 @@ export const ListEditor = ({
       {editIndex === newItemIndex ? (
         <EditorComponent onSubmit={onAdd} />
       ) : (
-        <Button
-          type={ButtonType.Primary}
-          onClick={() => {
-            setEditIndex(newItemIndex);
-          }}
-          style={{ marginTop: "1em" }}
-          nospacing>
-          <FontAwesomeIcon icon="plus" />
-        </Button>
+        <div className={styles.add}>
+          <Button
+            type={ButtonType.Primary}
+            onClick={() => {
+              setEditIndex(newItemIndex);
+            }}
+            compact
+            nospacing>
+            <FontAwesomeIcon icon="plus" />
+          </Button>
+        </div>
       )}
     </div>
   );
