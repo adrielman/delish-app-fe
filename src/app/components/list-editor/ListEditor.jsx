@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import { Button } from "../button/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import styles from "./ListEditor.module.scss";
 
 const defaultIndex = -1;
 const newItemIndex = -2;
@@ -25,8 +26,8 @@ export const ListEditor = ({
   };
 
   return (
-    <div>
-      <div>{title}</div>
+    <div className={styles.container}>
+      <div className={styles.title}>{title}</div>
       <ul>
         {data.map((item, index) => (
           <li key={index}>
@@ -36,16 +37,18 @@ export const ListEditor = ({
                 {...item}
               />
             ) : (
-              <div>
+              <Fragment>
                 <DisplayComponent {...item} />
-                <Button
-                  onClick={() => {
-                    setEditIndex(index);
-                  }}
-                >
-                  o
-                </Button>
-              </div>
+                <div className={styles.actions}>
+                  <Button
+                    onClick={() => {
+                      setEditIndex(index);
+                    }}
+                    compact>
+                    <FontAwesomeIcon icon="pen" />
+                  </Button>
+                </div>
+              </Fragment>
             )}
           </li>
         ))}
@@ -58,8 +61,8 @@ export const ListEditor = ({
           onClick={() => {
             setEditIndex(newItemIndex);
           }}
-        >
-          +
+          compact>
+          <FontAwesomeIcon icon="plus" />
         </Button>
       )}
     </div>
