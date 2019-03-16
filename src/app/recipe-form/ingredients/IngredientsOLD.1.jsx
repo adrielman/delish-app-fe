@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import IngredientForm from "./IngredientForm";
+import IngredientForm from "./ingredients/IngredientForm";
 import IngredientsList from "./IngredientsList";
-import RecipeForm from "./recipeForm";
+import Directions from "./Directions";
 import Recipes from "./recipes";
 import { Button } from "../components/button/Button";
-import RecipeSettingsForm from "./recipeSettingsForm";
+import { postRecipe } from "./RecipeApi";
 
 class Ingredients extends Component {
   constructor(props) {
@@ -48,10 +48,7 @@ class Ingredients extends Component {
   }
 
   onAddRecipe() {
-    if (
-      this.state.recipes.length !== 0 &&
-      this.state.ingredients.length !== 0
-    ) {
+    if (this.state.recipes.length !== 0 && this.state.ingredients.length !== 0) {
       this.setState({ ready: true });
     }
   }
@@ -66,9 +63,9 @@ class Ingredients extends Component {
   }
 
   onSubmit() {
-    let date = new Date();
+    const date = new Date();
 
-    let output = {
+    const recipe = {
       name: this.state.name,
       description: this.state.description,
       image: this.state.imgUrl,
@@ -78,20 +75,7 @@ class Ingredients extends Component {
       ingredients: this.state.ingredients,
       instructions: this.state.recipes
     };
-    fetch("https://delish-recipe-api.herokuapp.com/api/recipes", {
-      method: "POST",
-      mode: "cors",
-      cache: "no-cache",
-      credentials: "same-origin",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      redirect: "follow",
-      referrer: "no-referrer",
-      body: JSON.stringify(output)
-    }).then(response => response.json()); // parses response to JSON
-
-    console.log(JSON.stringify(output));
+    postRecipe(recipe);
   }
   onChangeName(text) {
     this.setState({ name: text });
@@ -102,32 +86,10 @@ class Ingredients extends Component {
   }
 
   render() {
-    if (this.state.ready) {
-      return (
-        <RecipeSettingsForm
-          ChangeName={this.onChangeName}
-          value={this.state.servings}
-          ChangeSoure={this.onChangeSource}
-          onDescription={this.onDescription}
-          onSubmit={this.onSubmit}
-          onImgUrl={this.onImgUrl}
-          onServings={this.onServings}
-        />
-      );
-    }
     return (
-      <div className="IngredientsList">
-        <IngredientsList
-          ingredients={this.state.ingredients}
-          onDelete={this.onDelete}
-        />
-        <IngredientForm
-          className="IngredientsList-form"
-          onSubmit={this.onAddIngredient}
-        />
-        <RecipeForm onAdd={this.onAddInstruction} />
-        <Recipes recipes={this.state.recipes} onDelete="potato" />
-        <Button text="Push" onClick={this.onAddRecipe} />
+      <div>
+        <IngredientsList ingredients={this.state.ingredients} onDelete={this.onDelete} />
+        <IngredientForm onSubmit={this.onAddIngredient} />
       </div>
     );
   }

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { NumberInput } from "../components/form/number-input/NumberInput";
-import { TextInput } from "../components/form/text-input/TextInput";
-import { DropdownInput } from "../components/form/dropdown-input/DropdownInput";
+import { NumberInput } from "../../components/form/number-input/NumberInput";
+import { TextInput } from "../../components/form/text-input/TextInput";
+import { DropdownInput } from "../../components/form/dropdown-input/DropdownInput";
 import styles from "./IngredientForm.module.scss";
-import { Button } from "../components/button/Button.jsx";
+import { Button } from "../../components/button/Button.jsx";
 
 const UNITS = [
   { value: "", label: "" },
@@ -54,25 +54,9 @@ class IngredientForm extends Component {
           {this.state.name} {this.state.amount} {this.state.unit}
         </div>
         <div className={styles.form}>
-          <TextInput
-            label="Ingredient"
-            name="name"
-            onChange={this.changeState}
-            value={this.state.name}
-          />
-          <NumberInput
-            label="Amount"
-            name="amount"
-            value={this.state.amount}
-            onChange={this.changeState}
-          />
-          <DropdownInput
-            label="Unit"
-            name="unit"
-            value={this.state.unit}
-            options={UNITS}
-            onChange={this.changeState}
-          />
+          <TextInput label="Ingredient" name="name" onChange={this.changeState} value={this.state.name} />
+          <NumberInput label="Amount" name="amount" value={this.state.amount} onChange={this.changeState} />
+          <DropdownInput label="Unit" name="unit" value={this.state.unit} options={UNITS} onChange={this.changeState} />
           <Button onClick={this.submitState} text={"Add"} />
         </div>
       </div>

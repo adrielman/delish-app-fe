@@ -4,8 +4,8 @@ import styles from "./App.module.scss";
 import "./Icons";
 
 import { Navigation, Link } from "./components/navigation/Navigation";
-import Ingredients from "./recipe-form/Ingredients";
 import Recipes from "./recipes/Recipes";
+import { RecipeEditor } from "./recipe-form/RecipeEditor";
 
 class App extends Component {
   render() {
@@ -19,9 +19,9 @@ class App extends Component {
             <Link to="/new-recipe">New Recipe</Link>
           </Navigation>
           <div className={styles.app}>
-            <Route exact path="/" component={Ingredients} />
+            <Route exact path="/" component={RecipeEditor} />
+            <Route path="/new-recipe" component={RecipeEditor} />
             <Route path="/recipes" component={Recipes} />
-            <Route path="/new-recipe" component={Ingredients} />
           </div>
         </div>
       </Router>
