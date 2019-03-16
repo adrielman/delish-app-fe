@@ -1,8 +1,4 @@
 import { library } from "@fortawesome/fontawesome-svg-core";
-import {
-  faAngleDown,
-  faAngleUp,
-  faCat
-} from "@fortawesome/free-solid-svg-icons";
+import { faAngleDown, faAngleUp, faCat, faPen, faTimes, faPlus } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faAngleDown, faAngleUp, faCat);
+library.add(faAngleDown, faAngleUp, faCat, faPen, faTimes, faPlus);
