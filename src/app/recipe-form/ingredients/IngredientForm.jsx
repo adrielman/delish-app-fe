@@ -23,10 +23,10 @@ class IngredientForm extends Component {
     super(props);
 
     this.state = {
-      name: "",
-      amount: 0,
-      unit: "",
-      message: ""
+      name: props.name || "",
+      amount: props.amount || 0,
+      unit: props.unit || "",
+      message: props.message || ""
     };
 
     this.changeState = this.changeState.bind(this);
@@ -50,14 +50,27 @@ class IngredientForm extends Component {
   render() {
     return (
       <div className={styles.container}>
-        <div className={styles.preview}>
-          {this.state.name} {this.state.amount} {this.state.unit}
-        </div>
         <div className={styles.form}>
-          <TextInput label="Ingredient" name="name" onChange={this.changeState} value={this.state.name} />
-          <NumberInput label="Amount" name="amount" value={this.state.amount} onChange={this.changeState} />
-          <DropdownInput label="Unit" name="unit" value={this.state.unit} options={UNITS} onChange={this.changeState} />
-          <Button onClick={this.submitState} text={"Add"} />
+          <TextInput
+            label="Ingredient"
+            name="name"
+            onChange={this.changeState}
+            value={this.state.name}
+          />
+          <NumberInput
+            label="Amount"
+            name="amount"
+            value={this.state.amount}
+            onChange={this.changeState}
+          />
+          <DropdownInput
+            label="Unit"
+            name="unit"
+            value={this.state.unit}
+            options={UNITS}
+            onChange={this.changeState}
+          />
+          <Button onClick={this.submitState}>Add</Button>
         </div>
       </div>
     );
