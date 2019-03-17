@@ -5,7 +5,7 @@ import { DropdownInput } from "../../components/form/dropdown-input/DropdownInpu
 import styles from "./IngredientForm.module.scss";
 import { Button } from "../../components/button/Button.jsx";
 
-const UNITS = [
+const units = [
   { value: "", label: "" },
   { value: "teaspoon", label: "teaspoon" },
   { value: "tablespoon", label: "tablespoon" },
@@ -49,28 +49,41 @@ class IngredientForm extends Component {
   }
   render() {
     return (
-      <div className={styles.container}>
-        <div className={styles.form}>
-          <TextInput
-            label="Ingredient"
-            name="name"
-            onChange={this.changeState}
-            value={this.state.name}
-          />
+      <div className={styles.form}>
+        <div className={styles.amount}>
           <NumberInput
             label="Amount"
             name="amount"
             value={this.state.amount}
             onChange={this.changeState}
+            compact
+            nospacing
           />
+          <div className={styles.unit} />
           <DropdownInput
             label="Unit"
             name="unit"
             value={this.state.unit}
-            options={UNITS}
+            options={units}
             onChange={this.changeState}
+            compact
+            nospacing
           />
-          <Button onClick={this.submitState}>Add</Button>
+        </div>
+        <div className={styles.name}>
+          <TextInput
+            label="Ingredient"
+            name="name"
+            onChange={this.changeState}
+            value={this.state.name}
+            compact
+            nospacing
+          />
+        </div>
+        <div className={styles.submit}>
+          <Button onClick={this.submitState} compact nospacing>
+            Save
+          </Button>
         </div>
       </div>
     );
