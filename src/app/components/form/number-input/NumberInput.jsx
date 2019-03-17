@@ -1,8 +1,16 @@
 import React from "react";
+import classNames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./NumberInput.module.scss";
 
-export const NumberInput = ({ label, value, name, onChange }) => {
+export const NumberInput = ({
+  label,
+  value,
+  name,
+  onChange,
+  compact,
+  nospacing
+}) => {
   const input = React.createRef();
 
   const onChangeHandler = event => {
@@ -26,8 +34,13 @@ export const NumberInput = ({ label, value, name, onChange }) => {
     return Number(sanitizedValue);
   };
 
+  const inputStyle = classNames(styles.input, {
+    [styles.compact]: compact,
+    [styles.nospacing]: nospacing
+  });
+
   return (
-    <div className={styles.input}>
+    <div className={inputStyle}>
       <input
         placeholder={label}
         value={value}

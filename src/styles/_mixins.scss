@@ -45,3 +45,21 @@
     color: $input-active-color;
   }
 }
+
+@mixin compact-input() {
+  .compact {
+    input,
+    select {
+      padding: $compact-spacing;
+    }
+  }
+}
+
+@mixin nospacing-input() {
+  .nospacing {
+    input,
+    select {
+      margin: 0;
+    }
+  }
+}

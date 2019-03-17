@@ -1,28 +1,36 @@
 import React from "react";
+import classNames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./DropdownInput.module.scss";
 
-export const DropdownInput = props => {
+export const DropdownInput = ({
+  value,
+  name,
+  options,
+  onChange,
+  compact,
+  nospacing
+}) => {
   const select = React.createRef();
 
-  const onChange = event => {
+  const onChangeHandler = event => {
     const { name, value } = event.target;
-    props.onChange(name, value);
+    onChange(name, value);
   };
 
   const focusOnSelect = event => {
     select.current.focus();
   };
 
+  const inputStyle = classNames(styles.input, {
+    [styles.compact]: compact,
+    [styles.nospacing]: nospacing
+  });
+
   return (
-    <div className={styles.input}>
-      <select
-        value={props.value}
-        name={props.name}
-        onChange={onChange}
-        ref={select}
-      >
-        {props.options.map((option, index) => (
+    <div className={inputStyle}>
+      <select value={value} name={name} onChange={onChangeHandler} ref={select}>
+        {options.map((option, index) => (
           <option key={index} value={option.value}>
             {option.label}
           </option>

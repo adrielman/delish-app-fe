@@ -71,7 +71,6 @@ export const ListEditor = ({
           </li>
         ))}
       </ul>
-
       {editIndex === newItemIndex ? (
         <EditorComponent onSubmit={onAdd} />
       ) : (
