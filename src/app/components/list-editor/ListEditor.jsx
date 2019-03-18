@@ -26,7 +26,10 @@ export const ListEditor = ({
   };
 
   const onDelete = (ingredient, index) => {
-    setEditIndex(defaultIndex);
+    var newIngredients = ingredient;
+    newIngredients.splice(index, 1);
+    onChange(newIngredients);
+    setEditIndex(index);
   };
 
   return (
@@ -50,7 +53,8 @@ export const ListEditor = ({
                         setEditIndex(index);
                       }}
                       compact
-                      nospacing>
+                      nospacing
+                    >
                       <FontAwesomeIcon icon="pen" />
                     </Button>
                   </div>
@@ -58,10 +62,11 @@ export const ListEditor = ({
                     <Button
                       type={ButtonType.Danger}
                       onClick={() => {
-                        onDelete(index);
+                        onDelete(data, index);
                       }}
                       compact
-                      nospacing>
+                      nospacing
+                    >
                       <FontAwesomeIcon icon="times" />
                     </Button>
                   </div>
@@ -81,7 +86,8 @@ export const ListEditor = ({
               setEditIndex(newItemIndex);
             }}
             compact
-            nospacing>
+            nospacing
+          >
             <FontAwesomeIcon icon="plus" />
           </Button>
         </div>
