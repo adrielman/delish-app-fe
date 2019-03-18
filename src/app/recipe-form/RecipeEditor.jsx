@@ -3,9 +3,11 @@ import { TextInput } from "../components/form/text-input/TextInput";
 import { Button } from "../components/button/Button";
 import { Directions } from "./Directions";
 import { Ingredients } from "./ingredients/Ingredients";
+import { Direction } from "./directions/directions";
 import { ListEditor } from "../components/list-editor/ListEditor";
 import { Ingredient } from "./ingredients/Ingredient";
 import IngredientForm from "./ingredients/IngredientForm";
+import DirectionForm from "./directions/DirectionForm";
 
 export const RecipeEditor = props => {
   const [title, setTitle] = useState("");
@@ -44,6 +46,13 @@ export const RecipeEditor = props => {
           data={ingredients}
           title="ingredients"
           onChange={newIngredients => setIngredients(newIngredients)}
+        />
+        <ListEditor
+          displayComponent={Direction}
+          editorComponent={DirectionForm}
+          data={directions}
+          title="directions"
+          onChange={newDirections => setDirections(newDirections)}
         />
         <Button onClick={onSubmit}>Save</Button>
       </form>

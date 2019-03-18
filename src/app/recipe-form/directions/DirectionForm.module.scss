@@ -1,0 +1,15 @@
+@import "../../../styles/shared";
+
+.form {
+  display: flex;
+  width: 100%;
+}
+
+.name {
+  display: inline-flex;
+  margin-right: 1em;
+}
+
+.submit {
+  margin-left: auto;
+}
