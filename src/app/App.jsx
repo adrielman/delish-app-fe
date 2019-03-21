@@ -4,7 +4,7 @@ import styles from "./App.module.scss";
 import "./Icons";
 
 import { Navigation, Link } from "./components/navigation/Navigation";
-import Recipes from "./recipes/Recipes";
+import Recipes from "./recipes/Recipes-Watch";
 import { RecipeEditor } from "./recipe-form/RecipeEditor";
 
 class App extends Component {
