@@ -5,7 +5,7 @@ import "./Icons";
 
 import { Navigation, Link } from "./components/navigation/Navigation";
 import Recipes from "./recipes/Recipes-Watch";
-import { RecipeEditor } from "./recipe-form/RecipeEditor";
+import { NewRecipe } from "./pages/NewRecipe";
 
 class App extends Component {
   render() {
@@ -19,8 +19,8 @@ class App extends Component {
             <Link to="/new-recipe">New Recipe</Link>
           </Navigation>
           <div className={styles.app}>
-            <Route exact path="/" component={RecipeEditor} />
-            <Route path="/new-recipe" component={RecipeEditor} />
+            <Route exact path="/" component={NewRecipe} />
+            <Route path="/new-recipe" component={NewRecipe} />
             <Route path="/recipes" component={Recipes} />
           </div>
         </div>
