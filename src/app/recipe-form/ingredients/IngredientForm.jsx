@@ -7,8 +7,8 @@ import { Button } from "../../components/button/Button.jsx";
 
 const units = [
   { value: "", label: "" },
-  { value: "teaspoon", label: "teaspoon" },
-  { value: "tablespoon", label: "tablespoon" },
+  { value: "tsp", label: "tsp" },
+  { value: "tbsp", label: "tbsp" },
   { value: "cup", label: "cup" },
   { value: "ml", label: "ml" },
   { value: "l", label: "l" },
