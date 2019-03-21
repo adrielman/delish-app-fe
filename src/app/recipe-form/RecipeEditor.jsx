@@ -19,43 +19,40 @@ export const RecipeEditor = props => {
     props.onSubmit({
       title,
       image,
-      directions
+      directions,
+      ingredients
     });
   };
 
   return (
-    <div>
-      <form>
-        <TextInput
-          value={title}
-          label="Title"
-          name="title"
-          onChange={(name, value) => setTitle(value)}
-        />
-        <TextInput
-          value={image}
-          label="Image URL"
-          name="image"
-          onChange={(name, value) => setImage(value)}
-        />
-        {/* <Ingredients data={ingredients} onChange={newIngredients => setIngredients(newIngredients)} />
-        <Directions data={directions} onChange={newDirections => setDirections(newDirections)} /> */}
-        <ListEditor
-          displayComponent={Ingredient}
-          editorComponent={IngredientForm}
-          data={ingredients}
-          title="ingredients"
-          onChange={newIngredients => setIngredients(newIngredients)}
-        />
-        <ListEditor
-          displayComponent={Direction}
-          editorComponent={DirectionForm}
-          data={directions}
-          title="directions"
-          onChange={newDirections => setDirections(newDirections)}
-        />
-        <Button onClick={onSubmit}>Save</Button>
-      </form>
-    </div>
+    <form>
+      <TextInput
+        value={title}
+        label="Title"
+        name="title"
+        onChange={(name, value) => setTitle(value)}
+      />
+      <TextInput
+        value={image}
+        label="Image URL"
+        name="image"
+        onChange={(name, value) => setImage(value)}
+      />
+      <ListEditor
+        displayComponent={Ingredient}
+        editorComponent={IngredientForm}
+        data={ingredients}
+        title="ingredients"
+        onChange={newIngredients => setIngredients(newIngredients)}
+      />
+      <ListEditor
+        displayComponent={Direction}
+        editorComponent={DirectionForm}
+        data={directions}
+        title="directions"
+        onChange={newDirections => setDirections(newDirections)}
+      />
+      <Button onClick={onSubmit}>Save</Button>
+    </form>
   );
 };
