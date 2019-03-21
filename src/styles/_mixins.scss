@@ -12,6 +12,7 @@
 %input {
   @extend %interactive-element;
   @extend %transition;
+  width: 100%;
   color: $input-color;
   background: $input-bg-color;
   border: $border-style transparent;
