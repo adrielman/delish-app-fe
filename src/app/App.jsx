@@ -7,8 +7,7 @@ import { Navigation, Link } from "./components/navigation/Navigation";
 import Recipes from "./recipes/Recipes-Watch";
 import { NewRecipe } from "./pages/NewRecipe";
 
-class App extends Component {
-  render() {
+export const App = () => {
     return (
       <Router>
         <div>
