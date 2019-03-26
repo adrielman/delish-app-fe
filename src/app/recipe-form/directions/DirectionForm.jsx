@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { TextInput } from "../../components/form/text-input/TextInput";
 import { TextareaInput } from "../../components/form/textarea-input/TextareaInput";
 import styles from "./DirectionForm.module.scss";
 import { Button } from "../../components/button/Button.jsx";

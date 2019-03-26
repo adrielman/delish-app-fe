@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { TextInput } from "../components/form/text-input/TextInput";
 import { Button } from "../components/button/Button";
-import { Directions } from "./Directions";
-import { Ingredients } from "./ingredients/Ingredients";
 import { Direction } from "./directions/directions";
 import { ListEditor } from "../components/list-editor/ListEditor";
 import { Ingredient } from "./ingredients/Ingredient";
