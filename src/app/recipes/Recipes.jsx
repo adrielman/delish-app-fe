@@ -1,9 +1,9 @@
 import React from "react";
 import { Recipe } from "./Recipe";
 
-export const Recipes = ({ recipes, ViewMe }) =>
+export const Recipes = ({ recipes, onSelect }) =>
   recipes.map((message, index) => (
     <li key={index}>
-      <Recipe ViewMe={ViewMe} index={index} recipe={message} />
+      <Recipe onSelect={onSelect} index={index} recipe={message} />
     </li>
   ));

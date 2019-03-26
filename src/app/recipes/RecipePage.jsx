@@ -1,59 +1,45 @@
 import React, { Component } from "react";
-import { Button } from "../components/button/Button";
-import { deleteRecipe } from "../recipe-form/RecipeApi";
 import { Recipes } from "../recipes/Recipes";
 import { RecipeExpanded } from "../recipes/RecipeExpanded";
-import Store, { onUpdate } from "../../store/store";
+import { RecipeConsumer } from "../RecipeContext";
 
+const NONE = -1;
 class RecipePage extends Component {
   constructor(props) {
     super(props);
-
-    this.state = { toWatch: -1 };
-    this.ViewMe = this.ViewMe.bind(this);
-    this.onDelete = this.onDelete.bind(this);
+    this.state = { selectedRecipe: NONE };
   }
 
-  ViewMe(index) {
-    this.setState({ toWatch: index });
+  closeRecipe() {
+    this.setState({ selectedRecipe: NONE });
   }
-  onDelete(id) {
-    deleteRecipe(id);
-    this.ViewMe(-1);
-    onUpdate();
-  }
+
+  selectRecipe = index => {
+    this.setState({ selectedRecipe: index });
+  };
+
   render() {
-    if (this.state.toWatch !== -1) {
-      return (
-        <Store.Consumer>
-          {({ recipes, OnUpdate, error }) => (
-            <div className="recipe-watch">
-              <RecipeExpanded
-                recipe={recipes[this.state.toWatch]}
-                onEdit="potato"
-                onDelete={this.onDelete}
-                onClose={() => this.ViewMe(-1)}
-              />
-            </div>
-          )}
-        </Store.Consumer>
-      );
-    }
+    const isSelection = this.state.selectedRecipe !== NONE;
     return (
-      <div className="recipe-watch">
-        <Store.Consumer>
-          {({ recipes, OnUpdate, error }) => (
-            <ul>
-              <Button onClick={OnUpdate}> OHNO</Button>
-              {error == null ? (
-                <div>oh no error!</div>
-              ) : (
-                <Recipes ViewMe={this.ViewMe} recipes={recipes} />
-              )}
-            </ul>
-          )}
-        </Store.Consumer>
-      </div>
+      <RecipeConsumer>
+        {({ recipes, onEdit, onDelete }) => (
+          <div>
+            {isSelection ? (
+              <RecipeExpanded
+                recipe={recipes[this.state.selectedRecipe]}
+                onEdit={onEdit}
+                onDelete={() => {
+                  onDelete();
+                  this.closeRecipe();
+                }}
+                onClose={() => this.closeRecipe()}
+              />
+            ) : (
+              <Recipes onSelect={this.selectRecipe} recipes={recipes} />
+            )}
+          </div>
+        )}
+      </RecipeConsumer>
     );
   }
 }

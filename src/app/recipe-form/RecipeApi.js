@@ -14,6 +14,9 @@ export const postRecipe = async recipe => {
 
 export const getRecipes = async () => {
   const response = await api.get("recipes");
-  console.log("getRecipes", response);
   return response.data;
+};
+
+export const updateRecipe = async recipe => {
+  await api.put(recipe);
 };

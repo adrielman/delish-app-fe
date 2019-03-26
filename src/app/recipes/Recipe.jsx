@@ -1,13 +1,12 @@
 import React, { Fragment } from "react";
 import { Button } from "../components/button/Button";
 
-export const Recipe = ({ recipe, index, ViewMe }) => (
+export const Recipe = ({ recipe, index, onSelect }) => (
   <Fragment>
     <Button
       onClick={() => {
-        ViewMe(index);
-      }}
-    >
+        onSelect(index);
+      }}>
       View Me
     </Button>
     {recipe.name} <br />
