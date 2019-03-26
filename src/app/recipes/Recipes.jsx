@@ -1,9 +1,9 @@
 import React from "react";
+import { Recipe } from "./Recipe";
 
-const Recipe = ({ recipe, onDelete }) => <div>{recipe.message}</div>;
-
-const Recipes = ({ recipes, onDelete }) =>
+export const Recipes = ({ recipes, ViewMe }) =>
   recipes.map((message, index) => (
-    <Recipe key={index} recipe={message} onDelete={onDelete} />
+    <li key={index}>
+      <Recipe ViewMe={ViewMe} index={index} recipe={message} />
+    </li>
   ));
-export default Recipes;
