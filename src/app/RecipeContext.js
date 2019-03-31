@@ -53,7 +53,8 @@ class RecipeProvider extends Component {
           onCreate: this.onCreate,
           onUpdate: this.onUpdate,
           onDelete: this.onDelete
-        }}>
+        }}
+      >
         {this.props.children}
       </Provider>
     );
