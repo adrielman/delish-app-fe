@@ -1,10 +1,5 @@
 import React, { Component } from "react";
-import {
-  getRecipes,
-  deleteRecipe,
-  updateRecipe,
-  createRecipe
-} from "./RecipeApi";
+import Api from "./RecipeApi";
 
 const { Provider, Consumer } = React.createContext();
 
@@ -17,38 +12,32 @@ class RecipeProvider extends Component {
   }
 
   componentDidMount() {
-    getRecipes().then(recipes => this.setState({ recipes }));
+    Api.getRecipes().then(recipes => this.setState({ recipes }));
   }
 
   onCreate = recipe => {
-    createRecipe(recipe).then(() => this.createRecipeInState());
+    Api.createRecipe(recipe).then(() => {
+      const recipes = [...this.state.recipes, recipe];
+      this.setState({ recipes });
+    });
   };
 
   onUpdate = recipe => {
-    updateRecipe(recipe).then(() => this.updateRecipeInState());
+    Api.updateRecipe(recipe).then(() => {
+      const recipes = [...this.state.recipes];
+      const index = this.findRecipeIndex(recipe.id);
+      recipes.splice(index, 1, recipe);
+      this.setState({ recipes });
+    });
   };
 
   onDelete = id => {
-    deleteRecipe(id).then(() => this.deleteRecipeInState());
-  };
-
-  createRecipeInState = recipe => {
-    const recipes = [...this.state.recipes, recipe];
-    this.setState({ recipes });
-  };
-
-  updateRecipeInState = recipe => {
-    const recipes = [...this.state.recipes];
-    const index = this.findRecipeIndex(recipe.id);
-    recipes.splice(index, 1, recipe);
-    this.setState({ recipes });
-  };
-
-  deleteRecipeInState = id => {
-    const recipes = [...this.state.recipes];
-    const index = this.findRecipeIndex(id);
-    recipes.splice(index, 1);
-    this.setState(recipes);
+    Api.deleteRecipe(id).then(() => {
+      const recipes = [...this.state.recipes];
+      const index = this.findRecipeIndex(id);
+      recipes.splice(index, 1);
+      this.setState(recipes);
+    });
   };
 
   findRecipeIndex = id => {
@@ -61,6 +50,7 @@ class RecipeProvider extends Component {
       <Provider
         value={{
           recipes: this.state.recipes,
+          onCreate: this.onCreate,
           onUpdate: this.onUpdate,
           onDelete: this.onDelete
         }}>
