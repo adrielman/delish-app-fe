@@ -15,7 +15,7 @@ export const RecipeEditor = props => {
 
   const onSubmit = () => {
     props.onSubmit({
-      title,
+      name: title,
       image,
       directions,
       ingredients
