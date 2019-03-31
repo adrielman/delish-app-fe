@@ -3,7 +3,7 @@
 button {
   @extend %interactive-element;
   @extend %transition;
-
+  cursor: pointer;
   border: $border-style transparent;
   border-radius: 5px;
   color: white;

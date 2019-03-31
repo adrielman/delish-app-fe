@@ -5,7 +5,6 @@
 }
 
 %interactive-element {
-  cursor: pointer;
   font: bold $font-size $text-font-family;
 }
 
@@ -37,7 +36,6 @@
 
 %control {
   @extend %transition;
-  cursor: pointer;
   &:hover {
     color: $primary-color;
     transition: 0.1ms;
