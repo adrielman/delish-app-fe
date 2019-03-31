@@ -1,7 +1,7 @@
 import React from "react";
 import { RecipeEditor } from "../recipe-form/RecipeEditor";
 
-import { postRecipe } from "../recipe-form/RecipeApi";
+import { createRecipe } from "../RecipeApi";
 
 import { Layout } from "../components/layout/Layout";
 export const NewRecipe = () => {
@@ -18,7 +18,7 @@ export const NewRecipe = () => {
       ingredients: ingredients,
       instructions: directions
     };
-    postRecipe(recipe);
+    createRecipe(recipe);
   };
   return (
     <Layout width={500}>

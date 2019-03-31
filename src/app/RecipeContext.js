@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import {
   getRecipes,
   deleteRecipe,
-  updateRecipe
-} from "./recipe-form/RecipeApi";
+  updateRecipe,
+  createRecipe
+} from "./RecipeApi";
 
 const { Provider, Consumer } = React.createContext();
 
@@ -19,18 +20,28 @@ class RecipeProvider extends Component {
     getRecipes().then(recipes => this.setState({ recipes }));
   }
 
+  onCreate = recipe => {
+    createRecipe(recipe).then(() => this.createRecipeInState());
+  };
+
   onUpdate = recipe => {
     updateRecipe(recipe).then(() => this.updateRecipeInState());
+  };
+
+  onDelete = id => {
+    deleteRecipe(id).then(() => this.deleteRecipeInState());
+  };
+
+  createRecipeInState = recipe => {
+    const recipes = [...this.state.recipes, recipe];
+    this.setState({ recipes });
   };
 
   updateRecipeInState = recipe => {
     const recipes = [...this.state.recipes];
     const index = this.findRecipeIndex(recipe.id);
     recipes.splice(index, 1, recipe);
-  };
-
-  onDelete = id => {
-    deleteRecipe(id).then(() => this.deleteRecipeInState());
+    this.setState({ recipes });
   };
 
   deleteRecipeInState = id => {

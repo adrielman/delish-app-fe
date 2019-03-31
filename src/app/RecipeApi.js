@@ -8,7 +8,7 @@ export const deleteRecipe = async id => {
   await api.delete(`recipes/${id}`);
 };
 
-export const postRecipe = async recipe => {
+export const createRecipe = async recipe => {
   await api.post("recipes", recipe);
 };
 
