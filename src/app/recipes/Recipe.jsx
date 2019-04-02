@@ -6,6 +6,6 @@ export const Recipe = ({ recipe, onSelect }) => (
     <Image src={recipe.image} alt={recipe.name} />
     <br />
 
-    {recipe.name}
+    {recipe.title}
   </div>
 );

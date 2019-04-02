@@ -22,7 +22,7 @@ export const RecipeExpanded = ({ recipe, onEdit, onDelete, onClose }) => {
       </ul>
 
       <ul>
-        {recipe.instructions.map((instriction, index) => (
+        {recipe.directions.map((instriction, index) => (
           <li key={index}>{instriction.message}</li>
         ))}
       </ul>
