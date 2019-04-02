@@ -24,9 +24,8 @@ class IngredientForm extends Component {
 
     this.state = {
       name: props.name || "",
-      amount: props.amount || 0,
-      unit: props.unit || "",
-      message: props.message || ""
+      quantity: props.quantity || 0,
+      unit: props.unit || ""
     };
 
     this.changeState = this.changeState.bind(this);
@@ -54,7 +53,7 @@ class IngredientForm extends Component {
           <NumberInput
             label="Amount"
             name="amount"
-            value={this.state.amount}
+            value={this.state.quantity}
             onChange={this.changeState}
             compact
             nospacing
