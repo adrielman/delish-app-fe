@@ -6,7 +6,7 @@ import { ListEditor } from "../components/list-editor/ListEditor";
 import { Ingredient } from "./ingredients/Ingredient";
 import IngredientForm from "./ingredients/IngredientForm";
 import DirectionForm from "./directions/DirectionForm";
-import NumberInput from "../components/form/number-input/NumberInput";
+import { NumberInput } from "../components/form/number-input/NumberInput";
 
 export const RecipeEditor = props => {
   const [title, setTitle] = useState("");
