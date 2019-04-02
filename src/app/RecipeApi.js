@@ -9,7 +9,8 @@ const RecipeApi = {
     await api.delete(`recipes/${id}`);
   },
   createRecipe: async recipe => {
-    await api.post("recipes", recipe);
+    const response = await api.post("recipes", recipe);
+    return response.data._id;
   },
   getRecipes: async () => {
     const response = await api.get("recipes");

@@ -16,8 +16,12 @@ class RecipeProvider extends Component {
   }
 
   onCreate = recipe => {
-    Api.createRecipe(recipe).then(() => {
-      const recipes = [...this.state.recipes, recipe];
+    Api.createRecipe(recipe).then(id => {
+      const recipeWithId = {
+        ...recipe,
+        _id: id
+      };
+      const recipes = [recipeWithId, ...this.state.recipes];
       this.setState({ recipes });
     });
   };
