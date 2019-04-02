@@ -6,19 +6,25 @@ import { ListEditor } from "../components/list-editor/ListEditor";
 import { Ingredient } from "./ingredients/Ingredient";
 import IngredientForm from "./ingredients/IngredientForm";
 import DirectionForm from "./directions/DirectionForm";
+import NumberInput from "../components/form/number-input/NumberInput";
 
 export const RecipeEditor = props => {
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
   const [directions, setDirections] = useState([]);
   const [ingredients, setIngredients] = useState([]);
+  const [servings, setServings] = useState([]);
+  const [link, setLink] = useState([]);
 
   const onSubmit = () => {
     props.onSubmit({
-      name: title,
+      title,
       image,
       directions,
-      ingredients
+      ingredients,
+      time: new Date().getTime(),
+      servings,
+      link
     });
   };
 
@@ -35,6 +41,18 @@ export const RecipeEditor = props => {
         label="Image URL"
         name="image"
         onChange={(name, value) => setImage(value)}
+      />
+      <TextInput
+        value={link}
+        label="Link to main host"
+        name="link"
+        onChange={(name, value) => setLink(value)}
+      />
+      <NumberInput
+        value={servings}
+        lavel="Servings"
+        name="servings"
+        onChange={(name, value) => setServings(value)}
       />
       <ListEditor
         displayComponent={Ingredient}
