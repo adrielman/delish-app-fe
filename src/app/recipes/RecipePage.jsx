@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import { Recipes } from "./Recipes";
 import { RecipeExpanded } from "../recipes/RecipeExpanded";
 import { RecipeConsumer } from "../RecipeContext";
-import { MasonryLayout } from "../components/masonry-layout/MasonryLayout";
-const NONE = -1;
+const NONE = null;
 class RecipePage extends Component {
   constructor(props) {
     super(props);
@@ -14,31 +13,34 @@ class RecipePage extends Component {
     this.setState({ selectedRecipe: NONE });
   }
 
-  selectRecipe = index => {
-    this.setState({ selectedRecipe: index });
+  selectRecipe = recipe => {
+    this.setState({ selectedRecipe: recipe });
   };
 
   render() {
-    const isSelection = this.state.selectedRecipe !== NONE;
+    const { selectedRecipe } = this.state;
+    const isRecipeSelected = !!selectedRecipe;
+    if (isRecipeSelected) {
+      console.log("SELECTED RECIPE", selectedRecipe);
+    }
+
     return (
       <RecipeConsumer>
-        {({ recipes, onEdit, onDelete }) => (
-          <MasonryLayout>
-            {isSelection ? (
-              <RecipeExpanded
-                recipe={recipes[this.state.selectedRecipe]}
-                onEdit={onEdit}
-                onDelete={() => {
-                  onDelete();
-                  this.closeRecipe();
-                }}
-                onClose={() => this.closeRecipe()}
-              />
-            ) : (
-              <Recipes onSelect={this.selectRecipe} recipes={recipes} />
-            )}
-          </MasonryLayout>
-        )}
+        {({ recipes, onEdit, onDelete }) =>
+          isRecipeSelected ? (
+            <RecipeExpanded
+              recipe={selectedRecipe}
+              onEdit={onEdit}
+              onDelete={() => {
+                onDelete(selectedRecipe._id);
+                this.closeRecipe();
+              }}
+              onClose={() => this.closeRecipe()}
+            />
+          ) : (
+            <Recipes onSelect={this.selectRecipe} recipes={recipes} />
+          )
+        }
       </RecipeConsumer>
     );
   }

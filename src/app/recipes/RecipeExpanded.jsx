@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import { Button } from "../components/button/Button";
 
 export const RecipeExpanded = ({ recipe, onEdit, onDelete, onClose }) => {
+  console.log("RECIPE EXPANDED", recipe);
   return (
     <Fragment>
       <span>{recipe.name}</span>
