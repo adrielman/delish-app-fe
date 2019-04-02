@@ -1,17 +1,11 @@
-import React, { Fragment } from "react";
-import { Button } from "../components/button/Button";
+import React from "react";
 import { Image } from "../components/image/Image";
-export const Recipe = ({ recipe, index, onSelect }) => (
-  <div>
-    <Image src={recipe.image} alt="not found this img" />
+
+export const Recipe = ({ recipe, onSelect }) => (
+  <div onClick={onSelect}>
+    <Image src={recipe.image} alt={recipe.name} />
     <br />
-    <Button
-      onClick={() => {
-        onSelect(index);
-      }}
-    >
-      View Me
-    </Button>
+
     {recipe.name}
   </div>
 );

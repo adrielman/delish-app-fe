@@ -3,8 +3,8 @@ import { Recipe } from "./Recipe";
 import "../components/masonry-layout/MasonryStandardStyle.css";
 
 export const Recipes = ({ recipes, onSelect }) =>
-  recipes.map((message, index) => (
+  recipes.map((recipe, index) => (
     <div className="grid-item" key={index}>
-      <Recipe onSelect={onSelect} index={index} recipe={message} />
+      <Recipe onSelect={() => onSelect(recipe)} recipe={recipe} />
     </div>
   ));
