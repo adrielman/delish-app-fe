@@ -51,8 +51,8 @@ class IngredientForm extends Component {
       <div className={styles.form}>
         <div className={styles.amount}>
           <NumberInput
-            label="Amount"
-            name="amount"
+            label="Quantity"
+            name="quantity"
             value={this.state.quantity}
             onChange={this.changeState}
             compact
