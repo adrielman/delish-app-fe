@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Recipes } from "../recipes/Recipes";
+import { Recipes } from "./Recipes";
 import { RecipeExpanded } from "../recipes/RecipeExpanded";
 import { RecipeConsumer } from "../RecipeContext";
-
+import { MasonryLayout } from "../components/masonry-layout/MasonryLayout";
 const NONE = -1;
 class RecipePage extends Component {
   constructor(props) {
@@ -23,7 +23,7 @@ class RecipePage extends Component {
     return (
       <RecipeConsumer>
         {({ recipes, onEdit, onDelete }) => (
-          <div>
+          <MasonryLayout>
             {isSelection ? (
               <RecipeExpanded
                 recipe={recipes[this.state.selectedRecipe]}
@@ -37,7 +37,7 @@ class RecipePage extends Component {
             ) : (
               <Recipes onSelect={this.selectRecipe} recipes={recipes} />
             )}
-          </div>
+          </MasonryLayout>
         )}
       </RecipeConsumer>
     );
