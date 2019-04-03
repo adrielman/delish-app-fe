@@ -15,7 +15,7 @@
   color: $input-color;
   background: $input-bg-color;
   border: $border-style transparent;
-  border-radius: 5px;
+  border-radius: $border-radius;
   margin: $spacing;
   padding: 1em;
 

@@ -1,0 +1,9 @@
+.recipes {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+}
+.item {
+  flex: auto;
+  width: 200px;
+}

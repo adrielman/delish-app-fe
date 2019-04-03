@@ -14,7 +14,8 @@ const RecipeApi = {
   },
   getRecipes: async () => {
     const response = await api.get("recipes");
-    return response.data;
+    console.log("getRecipes", response.data);
+    return response.data.data;
   },
   updateRecipe: async recipe => {
     await api.put(recipe);

@@ -2,9 +2,10 @@ $primary-color: #d37001;
 $danger-color: #d50147;
 
 $bg-color: #08202a;
+$bg-color-light: #0a2a37;
 $text-color: #3b7997;
 
-$input-bg-color: #0a2a37;
+$input-bg-color: $bg-color-light;
 $input-color: white;
 $input-hover-color: darken($primary-color, 20%);
 $input-active-color: lighten($primary-color, 20%);
@@ -16,6 +17,7 @@ $nav-link-active-color: lighten($primary-color, 30%);
 
 $border-size: 3px;
 $border-style: $border-size solid;
+$border-radius: 5px;
 
 $font-size: 15px;
 $text-font-family: "Josefin Sans", sans-serif;

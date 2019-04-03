@@ -2,6 +2,19 @@
 
 .container {
   margin: $spacing;
+  ul {
+    padding: 0;
+    margin: 0 0 1em;
+    list-style-type: none;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $text-color;
+    padding: 1em 0;
+    margin: 0;
+  }
 }
 
 .title {
@@ -9,20 +22,6 @@
   padding-bottom: 1em;
   text-transform: uppercase;
   font-weight: bold;
-}
-
-ul {
-  padding: 0;
-  margin: 0 0 1em;
-  list-style-type: none;
-}
-
-li {
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid $text-color;
-  padding: 1em 0;
-  margin: 0;
 }
 
 .actions {

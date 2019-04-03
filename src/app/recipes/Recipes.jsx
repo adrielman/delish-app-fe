@@ -1,15 +1,13 @@
 import React from "react";
 import { Recipe } from "./Recipe";
-import "../components/masonry-layout/MasonryStandardStyle.css";
-import { MasonryLayout } from "../components/masonry-layout/MasonryLayout";
-import { MasonryItem } from "../components/masonry-layout/MasonryItem";
+import styles from "./Recipes.module.scss";
 
 export const Recipes = ({ recipes, onSelect }) => (
-  <MasonryLayout>
+  <div className={styles.recipes}>
     {recipes.map((recipe, index) => (
-      <MasonryItem key={index}>
+      <article key={index} className={styles.item}>
         <Recipe onSelect={() => onSelect(recipe)} recipe={recipe} />
-      </MasonryItem>
+      </article>
     ))}
-  </MasonryLayout>
+  </div>
 );
