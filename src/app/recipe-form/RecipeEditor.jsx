@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { TextInput } from "../components/form/text-input/TextInput";
 import { Button } from "../components/button/Button";
-import { Direction } from "./directions/directions";
+import { Direction } from "./directions/Directions";
 import { ListEditor } from "../components/list-editor/ListEditor";
 import { Ingredient } from "./ingredients/Ingredient";
 import IngredientForm from "./ingredients/IngredientForm";
