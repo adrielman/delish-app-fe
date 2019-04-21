@@ -20,7 +20,7 @@ export const RecipeEditor = props => {
     props.onSubmit({
       title,
       image,
-      directions,
+      directions: directions.map(d => d.direction),
       ingredients,
       time: new Date().getTime(),
       servings,
