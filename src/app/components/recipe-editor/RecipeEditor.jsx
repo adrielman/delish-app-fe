@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { TextInput } from "../components/form/text-input/TextInput";
-import { Button } from "../components/button/Button";
+import { TextInput } from "../form/text-input/TextInput";
+import { Button } from "../button/Button";
 import { Direction } from "./directions/Direction";
-import { ListEditor } from "../components/list-editor/ListEditor";
+import { ListEditor } from "../list-editor/ListEditor";
 import { Ingredient } from "./ingredients/Ingredient";
 import IngredientForm from "./ingredients/IngredientForm";
 import DirectionForm from "./directions/DirectionForm";
-import { NumberInput } from "../components/form/number-input/NumberInput";
+import { NumberInput } from "../form/number-input/NumberInput";
 
 export const RecipeEditor = props => {
   const [title, setTitle] = useState("");

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { NumberInput } from "../../components/form/number-input/NumberInput";
-import { TextInput } from "../../components/form/text-input/TextInput";
-import { DropdownInput } from "../../components/form/dropdown-input/DropdownInput";
+import { NumberInput } from "../../form/number-input/NumberInput";
+import { TextInput } from "../../form/text-input/TextInput";
+import { DropdownInput } from "../../form/dropdown-input/DropdownInput";
 import styles from "./IngredientForm.module.scss";
-import { Button } from "../../components/button/Button.jsx";
+import { Button } from "../../button/Button.jsx";
 
 const units = [
   { value: "", label: "" },

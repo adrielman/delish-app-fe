@@ -1,5 +1,5 @@
 import React from "react";
-import { RecipeEditor } from "./recipe-editor/RecipeEditor";
+import { RecipeEditor } from "./components/recipe-editor/RecipeEditor";
 import { RecipeConsumer } from "./RecipeContext";
 import { Layout } from "./components/layout/Layout";
 export const NewRecipe = () => {

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { TextareaInput } from "../../components/form/textarea-input/TextareaInput";
+import { TextareaInput } from "../../form/textarea-input/TextareaInput";
 import styles from "./DirectionForm.module.scss";
-import { Button } from "../../components/button/Button.jsx";
+import { Button } from "../../button/Button.jsx";
 
 class DirectionForm extends Component {
   constructor(props) {
