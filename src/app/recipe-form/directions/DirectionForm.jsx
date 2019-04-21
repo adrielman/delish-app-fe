@@ -3,7 +3,7 @@ import { TextareaInput } from "../../components/form/textarea-input/TextareaInpu
 import styles from "./DirectionForm.module.scss";
 import { Button } from "../../components/button/Button.jsx";
 
-class IngredientForm extends Component {
+class DirectionForm extends Component {
   constructor(props) {
     super(props);
 
@@ -52,4 +52,4 @@ class IngredientForm extends Component {
   }
 }
 
-export default IngredientForm;
+export default DirectionForm;
