@@ -6,7 +6,7 @@ import { RecipeProvider } from "./RecipeContext";
 
 import { Navigation, Link } from "./components/navigation/Navigation";
 import { RecipesPage } from "./recipes/RecipesPage";
-import { NewRecipe } from "./NewRecipe";
+import { RecipeEditorPage } from "./recipes/RecipeEditorPage";
 
 export const App = () => (
   <Router>
@@ -15,12 +15,12 @@ export const App = () => (
         <Link to="/recipes" exact>
           Recipes
         </Link>
-        <Link to="/new-recipe">New Recipe</Link>
+        <Link to="/recipes/new">New Recipe</Link>
       </Navigation>
       <div className={styles.app}>
-        <Route exact path="/" component={NewRecipe} />
-        <Route path="/new-recipe" component={NewRecipe} />
-        <Route path="/recipes" component={RecipesPage} />
+        <Route exact path="/" component={RecipesPage} />
+        <Route exact path="/recipes" component={RecipesPage} />
+        <Route path="/recipes/:id" component={RecipeEditorPage} />
       </div>
     </RecipeProvider>
   </Router>
