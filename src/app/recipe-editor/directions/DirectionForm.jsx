@@ -8,36 +8,26 @@ class DirectionForm extends Component {
     super(props);
 
     this.state = {
-      name: props.name || ""
+      direction: props.direction || ""
     };
-
-    this.changeState = this.changeState.bind(this);
-    this.onChange = this.onChange.bind(this);
-    this.submitState = this.submitState.bind(this);
   }
 
-  onChange(event) {
-    let value = event.target.value;
-    let name = event.target.name;
-    this.changeState(name, value);
-  }
+  onChange = (name, value) => {
+    this.setState({ direction: value });
+  };
 
-  changeState(name, value) {
-    this.setState({ [name]: value });
-  }
-
-  submitState() {
+  submitState = () => {
     this.props.onSubmit(this.state);
-  }
+  };
   render() {
     return (
       <div className={styles.form}>
         <div className={styles.name}>
           <TextareaInput
             label="Direction"
-            name="name"
-            onChange={this.changeState}
-            value={this.state.name}
+            name="direction"
+            onChange={this.onChange}
+            value={this.state.direction}
             compact
             nospacing
           />
