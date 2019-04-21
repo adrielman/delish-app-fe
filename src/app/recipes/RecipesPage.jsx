@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Recipes } from "./Recipes";
-import { RecipeExpanded } from "../recipes/RecipeExpanded";
+import { RecipeExpanded } from "./RecipeExpanded";
 import { RecipeConsumer } from "../RecipeContext";
 const NONE = null;
-class RecipePage extends Component {
+export class RecipesPage extends Component {
   constructor(props) {
     super(props);
     this.state = { selectedRecipe: NONE };
@@ -45,5 +45,3 @@ class RecipePage extends Component {
     );
   }
 }
-
-export default RecipePage;

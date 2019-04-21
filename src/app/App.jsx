@@ -5,7 +5,7 @@ import "./Icons";
 import { RecipeProvider } from "./RecipeContext";
 
 import { Navigation, Link } from "./components/navigation/Navigation";
-import RecipePage from "./recipes/RecipePage";
+import { RecipesPage } from "./recipes/RecipesPage";
 import { NewRecipe } from "./NewRecipe";
 
 export const App = () => (
@@ -20,7 +20,7 @@ export const App = () => (
       <div className={styles.app}>
         <Route exact path="/" component={NewRecipe} />
         <Route path="/new-recipe" component={NewRecipe} />
-        <Route path="/recipes" component={RecipePage} />
+        <Route path="/recipes" component={RecipesPage} />
       </div>
     </RecipeProvider>
   </Router>
