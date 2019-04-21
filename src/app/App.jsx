@@ -6,7 +6,7 @@ import { RecipeProvider } from "./RecipeContext";
 
 import { Navigation, Link } from "./components/navigation/Navigation";
 import RecipePage from "./recipes/RecipePage";
-import { NewRecipe } from "./pages/NewRecipe";
+import { NewRecipe } from "./NewRecipe";
 
 export const App = () => (
   <Router>
