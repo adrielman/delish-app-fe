@@ -14,21 +14,21 @@ export const ListEditor = ({
   onChange
 }) => {
   const [editIndex, setEditIndex] = useState(defaultIndex);
-  const onAdd = ingredient => {
-    onChange([...data, ingredient]);
+  const onAdd = item => {
+    onChange([...data, item]);
     setEditIndex(defaultIndex);
   };
-  const onEdit = (ingredient, index) => {
+  const onEdit = (item, index) => {
     let dataArray = data.slice();
-    dataArray[index] = ingredient;
+    dataArray[index] = item;
     onChange(dataArray);
     setEditIndex(defaultIndex);
   };
 
-  const onDelete = (ingredient, index) => {
-    var newIngredients = ingredient;
-    newIngredients.splice(index, 1);
-    onChange(newIngredients);
+  const onDelete = (item, index) => {
+    var newItem = item;
+    newItem.splice(index, 1);
+    onChange(newItem);
     setEditIndex(index);
   };
 
@@ -40,7 +40,7 @@ export const ListEditor = ({
           <li key={index}>
             {editIndex === index ? (
               <EditorComponent
-                onSubmit={ingredient => onEdit(ingredient, index)}
+                onSubmit={item => onEdit(item, index)}
                 {...item}
               />
             ) : (
