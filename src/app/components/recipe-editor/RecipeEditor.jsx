@@ -8,16 +8,16 @@ import IngredientForm from "./ingredients/IngredientForm";
 import DirectionForm from "./directions/DirectionForm";
 import { NumberInput } from "../form/number-input/NumberInput";
 
-export const RecipeEditor = props => {
-  const [title, setTitle] = useState("");
-  const [image, setImage] = useState("");
-  const [directions, setDirections] = useState([]);
-  const [ingredients, setIngredients] = useState([]);
-  const [servings, setServings] = useState([]);
-  const [link, setLink] = useState([]);
+export const RecipeEditor = ({ onSubmit, recipe = {} }) => {
+  const [title, setTitle] = useState(recipe.title || "");
+  const [image, setImage] = useState(recipe.image || "");
+  const [directions, setDirections] = useState(recipe.directions || []);
+  const [ingredients, setIngredients] = useState(recipe.ingredients || []);
+  const [servings, setServings] = useState(recipe.servings || []);
+  const [link, setLink] = useState(recipe.link || []);
 
-  const onSubmit = () => {
-    props.onSubmit({
+  const onSubmitTriggered = () => {
+    onSubmit({
       title,
       image,
       directions: directions.map(d => d.direction),
@@ -68,7 +68,7 @@ export const RecipeEditor = props => {
         title="directions"
         onChange={newDirections => setDirections(newDirections)}
       />
-      <Button onClick={onSubmit}>Save</Button>
+      <Button onClick={onSubmitTriggered}>Save</Button>
     </form>
   );
 };
