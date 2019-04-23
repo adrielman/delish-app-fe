@@ -3,4 +3,9 @@
 .image {
   max-width: 100%;
   background-position: center;
+  display: block;
+}
+
+.hidden {
+  display: none;
 }
