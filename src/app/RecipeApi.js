@@ -10,7 +10,7 @@ const RecipeApi = {
   },
   createRecipe: async recipe => {
     const response = await api.post("recipes", recipe);
-    return response.data._id;
+    return response.data.data.id;
   },
   getRecipes: async () => {
     const response = await api.get("recipes");
