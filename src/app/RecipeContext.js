@@ -27,7 +27,6 @@ class RecipeProvider extends Component {
       };
       const recipes = [recipeWithId, ...this.state.recipes];
       this.setState({ recipes });
-      console.log("onCreate recipes:", recipes, recipeWithId, id);
     });
   };
   onClose = () => {
