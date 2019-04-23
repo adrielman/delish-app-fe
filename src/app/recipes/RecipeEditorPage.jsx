@@ -7,11 +7,11 @@ export const RecipeEditorPage = ({ match }) => {
   return (
     <Layout width={500}>
       <RecipeConsumer>
-        {({ onCreate, onUpdate }) =>
+        {({ onCreate, onUpdate, selectedRecipe }) =>
           isNew ? (
             <RecipeEditor onSubmit={onCreate} />
           ) : (
-            <RecipeEditor onSubmit={onUpdate} />
+            <RecipeEditor recipe={selectedRecipe} onSubmit={onUpdate} />
           )
         }
       </RecipeConsumer>

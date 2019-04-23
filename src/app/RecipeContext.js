@@ -7,9 +7,13 @@ class RecipeProvider extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      recipes: []
+      recipes: [],
+      selectedRecipe: null
     };
   }
+  onSelect = selectedRecipe => {
+    this.setState({ selectedRecipe });
+  };
 
   componentDidMount() {
     Api.getRecipes().then(recipes => this.setState({ recipes }));
@@ -19,28 +23,35 @@ class RecipeProvider extends Component {
     Api.createRecipe(recipe).then(id => {
       const recipeWithId = {
         ...recipe,
-        _id: id
+        id
       };
       const recipes = [recipeWithId, ...this.state.recipes];
       this.setState({ recipes });
+      console.log("onCreate recipes:", recipes, recipeWithId, id);
     });
+  };
+  onClose = () => {
+    this.setState({ selectedRecipe: null });
   };
 
   onUpdate = recipe => {
-    Api.updateRecipe(recipe).then(() => {
+    const { id } = this.state.selectedRecipe;
+    Api.updateRecipe({ ...recipe, id }).then(() => {
       const recipes = [...this.state.recipes];
-      const index = this.findRecipeIndex(recipe.id);
+      const index = this.findRecipeIndex(id);
       recipes.splice(index, 1, recipe);
       this.setState({ recipes });
     });
   };
 
-  onDelete = id => {
+  onDelete = () => {
+    const { id } = this.state.selectedRecipe;
     Api.deleteRecipe(id).then(() => {
       const recipes = [...this.state.recipes];
       const index = this.findRecipeIndex(id);
       recipes.splice(index, 1);
-      this.setState(recipes);
+      this.setState({ recipes });
+      this.onClose();
     });
   };
 
@@ -54,10 +65,14 @@ class RecipeProvider extends Component {
       <Provider
         value={{
           recipes: this.state.recipes,
+          selectedRecipe: this.state.selectedRecipe,
           onCreate: this.onCreate,
           onUpdate: this.onUpdate,
-          onDelete: this.onDelete
-        }}>
+          onDelete: this.onDelete,
+          onSelect: this.onSelect,
+          onClose: this.onClose
+        }}
+      >
         {this.props.children}
       </Provider>
     );
